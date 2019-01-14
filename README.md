@@ -33,3 +33,12 @@ https://docs.google.com/spreadsheets/d/1rPbbLV-HUeT6E5fGjFHgoQaJ9QXVzrjcgVIFcy69
 
 ワイヤーフレーム
 https://docs.google.com/spreadsheets/d/1oWPprI5eqSzsws6CbxHAnBZU-zVWRt6mg7j6wj1d1O8/edit#gid=0
+
+使用予定gem
+
+carrierwave
+mini_magick
+Devise
+pry-rails
+better_errors
+binding_of_caller
