@@ -42,3 +42,4 @@ Devise
 pry-rails
 better_errors
 binding_of_caller
+letter_opener_web
