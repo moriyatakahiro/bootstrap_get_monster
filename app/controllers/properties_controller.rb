@@ -38,6 +38,10 @@ class PropertiesController < ApplicationController
     redirect_to properties_path, notice:"物件を削除しました！"
   end
   
+  def confirm
+    @property = Property.new(property_params)
+  end
+  
   private
   
   def property_params
