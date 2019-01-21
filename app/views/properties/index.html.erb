@@ -26,7 +26,7 @@
     <div>
       <%= link_to '詳細を確認する', property_path(property.id) %>
     　<%= link_to "物件を編集する", edit_property_path(property.id) %>
-    　<%= link_to '物件を削除する', property_path(property.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %>
+    　<%= link_to '物件を削除する', property_path(property.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
     </div>
     
   
