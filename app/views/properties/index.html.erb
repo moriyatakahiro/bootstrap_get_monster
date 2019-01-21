@@ -1,37 +1,31 @@
-<h1>ブログ一覧</h1>
+<h1>物件一覧</h1>
 
-<table>
-  <tr>
-    <th>物件名</th>
-    <th>郵便番号</th>
-    <th>内容</th>
-    <th>内容</th>
-    <th>内容</th>
-    <th>内容</th>
-    <th>内容</th>
-    <th>内容</th>
-    <th>内容</th>
-    <th>内容</th>
-    <th>内容</th>
-    <th>内容</th>
-    
-  </tr>
+
 
 <% @properties.each do |property| %>
-  <tr>
-    <td><%= property.name %></td>
-    <td><%= property.postful_code %></td>
-    <td><%= property.city %></td>
-    <td><%= property.town %></td>
-    <td><%= property.adress %></td>
-    <td><%= property.after_adress %></td>
-    <td><%= property.property_age%></td>
-    <td><%= property.rent%></td>
-    <td><%= property.floor_space%></td>
-    <td><%= property.floor_plan %></td>
-    <td><%= property.stop_count %></td>
-    <td><%= property.stop_adress %></td>
+  
+    <h2>物件名  <%= property.name %></h2>
+    <br>
+    <div>住所 〒<%= property.postful_code %>
+      <%= property.city %>区
+      <%= property.town %>
+      <%= property.adress %>丁目
+      <%= property.after_adress %>
+    </div>
+    <br>
+    <div>築年数 <%= property.property_age%>年</div>
+    <div>家賃 <%= property.rent%>円</div>
+    <div>広さ <%= property.floor_space%></div>
+    <div>間取り <%= property.floor_plan %></div>
+    <div>ポケストップの数 <%= property.stop_count %></div>
+    <div>ポケストップの場所 <%= property.stop_adress %></div>
+    <div>出現するポケモン <%= property.encount_monster %></div>
     
-  </tr>
+    <div>
+      <%= link_to '詳細を確認する', property_path(property.id) %>
+    　<%= link_to "物件を編集する", edit_property_path(property.id) %>
+    　<%= link_to '物件を削除する', property_path(property.id), method: :delete,data: { confirm: '本当に削除していいですか？' } %>
+    </div>
+    
+  
 <% end %>
-</table>

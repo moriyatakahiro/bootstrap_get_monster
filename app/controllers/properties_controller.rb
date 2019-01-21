@@ -8,11 +8,34 @@ class PropertiesController < ApplicationController
   end
   
   def create
-    Property.create(property_params)
-    redirect_to new_property_path
+    @property = Property.new(property_params)
+    if @property.save
+      redirect_to properties_path, notice: "物件を投稿しました！"
+    else
+      render 'new'
+    end
+  end
+  
+  def edit
+    @property = Property.find(params[:id])
+  end
+  
+  def update
+    @property= Property.find(params[:id])
+    if @property.update(property_params)
+      redirect_to properties_path, notice: "物件を編集しました！"
+    else
+      render 'edit'
+    end
   end
   
   def show
+    @property = Property.find(params[:id])
+  end
+  
+  def destroy
+    @property.destroy
+    redirect_to properties_path, notice:"物件を削除しました！"
   end
   
   private
