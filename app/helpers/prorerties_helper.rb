@@ -1,0 +1,2 @@
+module ProrertiesHelper
+end
