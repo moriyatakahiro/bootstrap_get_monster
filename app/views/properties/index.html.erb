@@ -1,2 +1,37 @@
-<h1>Prorerties#index</h1>
-<p>Find me in app/views/prorerties/index.html.erb</p>
+<h1>ブログ一覧</h1>
+
+<table>
+  <tr>
+    <th>物件名</th>
+    <th>郵便番号</th>
+    <th>内容</th>
+    <th>内容</th>
+    <th>内容</th>
+    <th>内容</th>
+    <th>内容</th>
+    <th>内容</th>
+    <th>内容</th>
+    <th>内容</th>
+    <th>内容</th>
+    <th>内容</th>
+    
+  </tr>
+
+<% @properties.each do |property| %>
+  <tr>
+    <td><%= property.name %></td>
+    <td><%= property.postful_code %></td>
+    <td><%= property.city %></td>
+    <td><%= property.town %></td>
+    <td><%= property.adress %></td>
+    <td><%= property.after_adress %></td>
+    <td><%= property.property_age%></td>
+    <td><%= property.rent%></td>
+    <td><%= property.floor_space%></td>
+    <td><%= property.floor_plan %></td>
+    <td><%= property.stop_count %></td>
+    <td><%= property.stop_adress %></td>
+    
+  </tr>
+<% end %>
+</table>

@@ -1,4 +1,4 @@
-<%= form_with(model: Property.new, local: true) do |form| %>
+<%= form_with(model: @property, local: true) do |form| %>
   <div class="property_name">
     <%= form.label :物件名 %>
     <%= form.text_field :name %>
@@ -7,20 +7,16 @@
   <div class="postful_code">
     <%= form.label :郵便番号 %>
     〒<%= form.text_field :postful_code %>
-  </div>
-  <div class="property_city">
-    東京都<%= form.text_field :city %>区
-  </div>
-  <div class="町名">
-    <%= form.label :town %>
-    <%= form.text_field :town %>
-  </div>
-  <div class="property_adress">
-    <%= form.label :丁目 %>
+ 
+     東京都<%= form.text_field :city %>区
+  
+    
+    <%= form.text_field :town %>町
+ 
+    
     <%= form.text_field :adress %>丁目
-  </div>
-  <div class="property_after_adress">
-    <%= form.label :番地 %>
+ 
+    
     <%= form.text_field :after_adress %>
   </div>
   <br>
