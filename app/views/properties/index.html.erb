@@ -1,5 +1,7 @@
 <h1>物件一覧</h1>
 
+<p><%= notice %></p>
+
 <%= link_to '新しく物件を投稿する', new_property_path %>
 
 
@@ -9,7 +11,8 @@
     <h2>物件名  <%= property.name %></h2>
     <br>
     <div>住所 〒<%= property.postful_code %>
-      <%= property.city %>区
+      -<%= property.postful_code_after %>
+      東京都<%= property.city %>区
       <%= property.town %>
       <%= property.adress %>丁目
       <%= property.after_adress %>
