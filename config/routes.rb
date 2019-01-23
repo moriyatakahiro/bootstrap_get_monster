@@ -6,10 +6,14 @@ Rails.application.routes.draw do
   end
   
   resources :users
-
-  resources :properties do
-    collection do
-      post :confirm
+  
+  namespace :admin do
+    resources :properties do
+      collection do
+        post :confirm
+      end
     end
   end
+  
+  resources :properties
 end

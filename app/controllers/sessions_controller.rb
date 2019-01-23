@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       if @user && @user.authenticate(params[:session][:password])
         session[:user_id] = @user.id
         if @user.try(:admin?)
-          redirect_to properties_path
+          redirect_to admin_user_path(@user.id)
         else
           redirect_to user_path(@user.id)
         end

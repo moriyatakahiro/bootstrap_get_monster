@@ -15,7 +15,6 @@
     
 
     <% if logged_in? %>
-      <%= link_to "プロフィール", user_path(current_user.id) %>
       <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
     <% else %>
       <%= link_to "新規登録する", new_user_path %>

@@ -6,7 +6,7 @@ class Admin::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to user_admin_path(@user.id)
+      redirect_to admin_user_path(@user.id)
     else
       render 'new'
     end

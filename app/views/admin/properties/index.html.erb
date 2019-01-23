@@ -1,5 +1,9 @@
 <h1>物件一覧</h1>
 
+<p><%= notice %></p>
+
+<%= link_to '新しく物件を投稿する', new_property_path %>
+
 
 
 <% @properties.each do |property| %>
@@ -24,6 +28,8 @@
     
     <div>
       <%= link_to '詳細を確認する', property_path(property.id) %>
+    　<%= link_to "物件を編集する", edit_property_path(property.id) %>
+    　<%= link_to '物件を削除する', property_path(property.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
     </div>
     
   
