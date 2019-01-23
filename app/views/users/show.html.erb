@@ -1,8 +1,12 @@
-<h1><%= @user.name %>さんのページ</h1>
+<h1>GET MONSTER! 賃貸</h1>
+<p><%= @user.name %>さんのページ</p>
 
 <%= form_tag properties_path, :method => 'get' do %> <%#　projects_pathはモデル名で読みかえること %>
   <p>
-    物件検索 <%= text_field_tag :search, params[:search] %>
+    キーワードから物件を検索 <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search", :name => nil %>
   </p>
 <% end %>
+
+<p>エリアから絞り込む</p>
+  <div>渋谷区　千代田区　新宿区　品川区　中央区</div>

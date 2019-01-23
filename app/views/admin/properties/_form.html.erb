@@ -1,4 +1,4 @@
-<%= form_with(model: @property, local: true ,url: confirm_properties_path ) do |form| %>
+<%= form_with(model: @property, local: true ,url: confirm_admin_properties_path ) do |form| %>
    <% if @property.errors.any? %>
     <div id="error_explanation">
       <h2><%= @property.errors.count %>件のエラーがあります。</h2>
