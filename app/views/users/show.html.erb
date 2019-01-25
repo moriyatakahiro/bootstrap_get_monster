@@ -11,8 +11,36 @@
 <% end %>
 
 <p>エリアから絞り込む</p>
-  <div>渋谷区　千代田区　新宿区　品川区　中央区</div>
+  <div>
+　　<%= link_to "渋谷区", properties_path(:city => '渋谷') %>
+　　<%= link_to "千代田区", properties_path %>
+　　<%= link_to "新宿区", properties_path %>
+　　<%= link_to "豊島区", properties_path %>
+　　<%= link_to "品川区", properties_path %>
+　　<%= link_to "中央区", properties_path %>
+　　<%= link_to "港区", properties_path %>
+　　<%= link_to "練馬区", properties_path %>
+　　<%= link_to "板橋区", properties_path %>
+　　<%= link_to "台東区", properties_path %>
+　　<%= link_to "江東区", properties_path %>
+　　<%= link_to "葛飾区", properties_path %>
+　　<%= link_to "目黒区", properties_path %>
+　　<%= link_to "大田区", properties_path %>
+　　<%= link_to "足立区", properties_path %><br>
+　　<%= link_to "中野区", properties_path %>
+　　<%= link_to "江戸川区", properties_path %>
+　　<%= link_to "文京区", properties_path %>
+　　<%= link_to "世田谷区", properties_path %>
+　　<%= link_to "杉並区", properties_path %>
+　　<%= link_to "北区", properties_path %>
+　　<%= link_to "荒川区", properties_path %>
+　　<%= link_to "墨田区", properties_path %>
+　　
+　　
+　</div>　
+  
   
 <p>GET報告</p>
 
 <p>Legend Monster通知機能</p>
+

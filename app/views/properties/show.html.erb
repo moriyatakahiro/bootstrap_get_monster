@@ -17,8 +17,12 @@
     <div>ポケストップの場所 <%= @property.stop_adress %></div>
     <div>出現するポケモン <%= @property.encount_monster %></div>
     
+    
+<div> 
   <% if @favorite.present? %>
     <%= link_to 'いいね！解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
   <% else %>
     <%= link_to 'いいね！する', favorites_path(properties_id: @property.id), method: :post, class: 'btn btn-primary' %>
   <% end %>
+  <p>お問い合わせする</p>
+</div>
