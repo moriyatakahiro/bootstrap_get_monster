@@ -3,7 +3,7 @@ class Property < ApplicationRecord
   has_many :favorite_users, through: :favorites, source: :user
   def self.search(search) #self.でクラスメソッドとしている
     if search # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
-      Property.where(['name LIKE ?', "%#{search}%"])
+      Property.where(['name LIKE ? OR city LIKE ? OR encount_monster LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
     else
       Property.all
     end
