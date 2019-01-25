@@ -5,9 +5,27 @@
   <div class="row">
     <% current_user.favorites.each do |favorite| %>
       
-          
-        <h2><%= favorite.property.name %></h2>
-        
+      <h2>物件名  <%= favorite.property.name %></h2>
+    <br>
+    <div>住所 〒<%= favorite.property.postful_code %>
+      -<%= favorite.property.postful_code_after %>
+      東京都<%= favorite.property.city %>区
+      <%= favorite.property.town %>
+      <%= favorite.property.adress %>丁目
+      <%= favorite.property.after_adress %>
+    </div>
+    <br>
+    <div>築年数 <%= favorite.property.property_age%>年</div>
+    <div>家賃 <%= favorite.property.rent%>円</div>
+    <div>広さ <%= favorite.property.floor_space%></div>
+    <div>間取り <%= favorite.property.floor_plan %></div>
+    <div>ポケストップの数 <%= favorite.property.stop_count %></div>
+    <div>ポケストップの場所 <%= favorite.property.stop_adress %></div>
+    <div>出現するポケモン <%= favorite.property.encount_monster %></div>
+    
+  
+    <div>
         <%= link_to 'いいね！解除する', favorite_path(id: favorite.id), method: :delete, class: 'btn btn-danger' %>
-    <% end %>
-  </div>
+    </div>    
+  <% end %>
+</div>
