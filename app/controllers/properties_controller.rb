@@ -9,6 +9,7 @@ class PropertiesController < ApplicationController
   
   def create
     @property = Property.new(property_params)
+    @property.user_id = current_user.id
     if @property.save
       redirect_to admin_properties_path, notice: "物件を投稿しました！"
     else
@@ -31,6 +32,7 @@ class PropertiesController < ApplicationController
   
   def show
     @property = Property.find(params[:id])
+    @favorite = current_user.favorites.find_by(property_id: @property.id)
   end
   
   def destroy
@@ -41,6 +43,8 @@ class PropertiesController < ApplicationController
   
   def confirm
     @property = Property.new(property_params)
+    @property.user_id = current_user.id
+    render :new if @property.invalid?
   end
   
   private

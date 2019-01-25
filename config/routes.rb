@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'users#new'
+  resources :favorites, only: [:index, :create, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
   
   namespace :admin do

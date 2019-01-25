@@ -1,0 +1,13 @@
+<h1>お気に入り一覧</h1>
+
+<div class="container">
+  
+  <div class="row">
+    <% current_user.favorites.each do |favorite| %>
+      
+          
+        <h2><%= favorite.property.name %></h2>
+        
+        <%= link_to 'いいね！解除する', favorite_path(id: favorite.id), method: :delete, class: 'btn btn-danger' %>
+    <% end %>
+  </div>
