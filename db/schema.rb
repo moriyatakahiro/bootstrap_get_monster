@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190128050046) do
+ActiveRecord::Schema.define(version: 20190129062139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,13 +51,16 @@ ActiveRecord::Schema.define(version: 20190128050046) do
   end
 
   create_table "reports", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "property_id"
     t.string "title"
     t.string "content"
-    t.text "screen_shot_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "city"
+    t.string "town"
+    t.integer "adress"
+    t.bigint "user_id"
+    t.text "image"
+    t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -73,4 +76,5 @@ ActiveRecord::Schema.define(version: 20190128050046) do
   end
 
   add_foreign_key "properties", "users"
+  add_foreign_key "reports", "users"
 end

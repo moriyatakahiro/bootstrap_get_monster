@@ -1,28 +1,29 @@
-<%= form_with(model: @report, local: true) do |f| %>  
-
 <h1>GET報告</h1>
 
-<%= link_to 'GET報告を確認する', reports_path %><br>
+<%= link_to 'GET一覧を見る', reports_path %><br>
 
-  <div>
-  <%= f.label :捕まえたポケモン %>
-  <%= f.text_field :title %>
-  </div>
-  <div>
-  <%= f.label :本文 %>
-  <%= f.text_field :content %>
-  </div>
-  <div>
-  <%= f.label :捕まえた場所 %>
-    東京都<%= f.text_field :city %>区
+<%= form_with(model: @report) do |form| %>
+  <div class="report_title">
+    <%= form.label :捕まえたポケモン %>
+    <%= form.text_field :title %>
+  </div><br>
+  <div class="report_content">
+    <%= form.label :本文 %>
+    <%= form.text_field :content %>
+  </div><br>
+  <div class="report_city">
+    
+    東京都<%= form.text_field :city %>区
   
     
-    <%= f.text_field :town %>町
- 
+    <%= form.text_field :town %>町
+  
     
-    <%= f.text_field :adress %>丁目
-  </div>
-  
-  
-  <%= f.submit "投稿する" %>
+    <%= form.text_field :adress %>丁目
+  </div><br>
+  <div class="field">
+    <%= form.label :ポケモンの画像 %>
+    <%= form.file_field :image %>
+</div>
+  <%= form.submit %>
 <% end %>

@@ -3,6 +3,7 @@
 <%= form_with(model: @property, url: properties_path, local: true) do |form| %>
   <%= form.hidden_field :name %>
   <%= form.hidden_field :postful_code %>
+  <%= form.hidden_field :postful_code_after %>
   <%= form.hidden_field :city %>
 　<%= form.hidden_field :town %>
 　<%= form.hidden_field :adress %>

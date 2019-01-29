@@ -2,7 +2,8 @@
 
 <h2>物件名  <%= @property.name %></h2>
     <br>
-    <div>住所 〒<%= @property.postful_code %>
+    <div>住所 〒<%= @property.postful_code %>-
+      <%= @property.postful_code_after %>
       <%= @property.city %>区
       <%= @property.town %>
       <%= @property.adress %>丁目

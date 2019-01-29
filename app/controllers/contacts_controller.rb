@@ -18,6 +18,7 @@ class ContactsController < ApplicationController
  
   def create
     @contact = Contact.new(contact_params)
+    @property = Property.find(params[:user_id])
       if @contact.save
         ContactMailer.contact_mail(@contact, @property).deliver  
         redirect_to @contact, notice: 'メールを送信しました。'

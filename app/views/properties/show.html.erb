@@ -1,8 +1,12 @@
 <h1>物件詳細画面</h1>
 
+<%= form_with(model: @property, local: true) do |form| %>
+  <%= form.hidden_field :user_id %>
+  
 <h2>物件名  <%= @property.name %></h2>
     <br>
-    <div>住所 〒<%= @property.postful_code %>
+    <div>住所 〒<%= @property.postful_code %>-
+      <%= @property.postful_code_after %>
       <%= @property.city %>区
       <%= @property.town %>
       <%= @property.adress %>丁目
@@ -18,11 +22,13 @@
     <div>出現するポケモン <%= @property.encount_monster %></div>
     
     
+    
 <div> 
   <% if @favorite.present? %>
     <%= link_to 'いいね！解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
   <% else %>
     <%= link_to 'いいね！する', favorites_path(properties_id: @property.id), method: :post, class: 'btn btn-primary' %>
   <% end %>
-  <%= link_to 'お問い合わせする', new_contact_path, , data: {user_id: @property.user_id}%>
+  <%= link_to 'お問い合わせする', new_contact_path, data: {user_id: @property.user_id} %>
 </div>
+<% end %>

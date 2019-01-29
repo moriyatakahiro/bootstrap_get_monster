@@ -1,4 +1,5 @@
 <%= form_with(model: @contact, local: true) do |form| %>
+  <%= form.hidden_field :user_id %>
   <% if @contact.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>

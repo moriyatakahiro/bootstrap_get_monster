@@ -1,4 +1,6 @@
 class Report < ApplicationRecord
-  belongs_to :user
-  belongs_to :property
+    mount_uploader :image, ImageUploader
+    
+　　city_search, => {where("city LIKE ?" #全部一致する検索)
+　　
 end
