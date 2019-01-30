@@ -1,7 +1,6 @@
 <h1>物件詳細画面</h1>
 
 <%= form_with(model: @property, local: true) do |form| %>
-  <%= form.hidden_field :user_id %>
   
 <h2>物件名  <%= @property.name %></h2>
     <br>
@@ -29,6 +28,6 @@
   <% else %>
     <%= link_to 'いいね！する', favorites_path(properties_id: @property.id), method: :post, class: 'btn btn-primary' %>
   <% end %>
-  <%= link_to 'お問い合わせする', new_contact_path, data: {user_id: @property.user_id} %>
+  <%= link_to 'お問い合わせする', new_property_contact_path(@property) %>
 </div>
 <% end %>

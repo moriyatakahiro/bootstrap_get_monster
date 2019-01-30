@@ -12,16 +12,21 @@ class ContactsController < ApplicationController
 
   
   def new
-    @contact = Contact.new
+    @property_id = params[:properties_id]
+      if params[:back]
+        @contact = Contact.new(contact_params)
+      else
+        @contact = Contact.new
+      end
   end
 
  
   def create
     @contact = Contact.new(contact_params)
-    @property = Property.find(params[:user_id])
+    @property = Property.find(params[:property_id])
       if @contact.save
         ContactMailer.contact_mail(@contact, @property).deliver  
-        redirect_to @contact, notice: 'メールを送信しました。'
+        redirect_to root_path, notice: 'メールを送信しました。'
       else
         render :new
       end

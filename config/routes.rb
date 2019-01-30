@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   resources :favorites, only: [:index, :create, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
   resources :reports
-  resources :contacts
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   
   namespace :admin do
@@ -21,5 +20,7 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :properties
+  resources :properties do
+    resources :contacts, only: [:new, :create, :show]
+  end
 end
