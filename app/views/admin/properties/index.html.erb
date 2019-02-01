@@ -6,6 +6,12 @@
   
     <h2>物件名  <%= property.name %></h2>
     <br>
+    <div>
+    <strong></strong>
+    <% if property.image.url.present? %>
+      <%= image_tag property.image.url %>
+    <% end %>
+  </div>
     <div>住所 〒<%= property.postful_code %>
       -<%= property.postful_code_after %>
       東京都<%= property.city %>区

@@ -11,5 +11,5 @@ class Property < ApplicationRecord
     end
   end
     
-    validates :name, :city, :town, :postful_code, :postful_code_after, :adress, :after_adress, :rent, :floor_plan, :floor_space, :encount_monster, :stop_count, :stop_adress, :property_age, presence: true
+    validates :name, :city, :town, :postful_code, :postful_code_after, :adress, :after_adress, :rent, :floor_plan, :floor_space, :encount_monster, :stop_count, :stop_adress, :property_age, :image, :image_cache, presence: true
 end
