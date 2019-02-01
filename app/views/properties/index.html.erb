@@ -1,9 +1,11 @@
+<div class="container">
+
 <h1>物件一覧</h1>
 
 
 
 <% @properties.each do |property| %>
-  
+  <div class="property-panel">
     <h2>物件名  <%= property.name %></h2>
     <br>
     <div>住所 〒<%= property.postful_code %>
@@ -22,9 +24,9 @@
     <div>ポケストップの場所 <%= property.stop_adress %></div>
     <div>出現するポケモン <%= property.encount_monster %></div>
     
-    <div>
+    <div class="property-links">
       <%= link_to '詳細を確認する', property_path(property.id) %>
     </div>
-    
-  
+  </div>
 <% end %>
+</div>

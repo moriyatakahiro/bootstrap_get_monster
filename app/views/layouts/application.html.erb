@@ -2,26 +2,39 @@
 <html>
   <head>
     <title>Monster</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <%= csrf_meta_tags %>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    
+    <header>
+    <ul>
+      <% if logged_in? %>
+        <li><%= link_to "マイページ", user_path(current_user.id) %></li>
+        <li><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
+        <li><%= link_to "お気に入り一覧", favorites_path %></li>
+      <% else %>
+        <li><%= link_to "サインアップ", new_user_path %></li>
+        <li><%= link_to "ログイン", new_session_path %></li>
+      <% end %>
+      <li><%= link_to "GET一覧", reports_path %></li>
+      <li><%= link_to 'GET報告', new_report_path %><br></li>
+    </ul>
+  </header>
+  
      <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %>
     <% end %>
     
 
-    <% if logged_in? %>
-      <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
-      <%= link_to "マイページ", user_path(current_user.id) %>
-    <% else %>
-      <%= link_to "新規登録する", new_user_path %>
-      <%= link_to "ログイン", new_session_path %>
-    <% end %>
 
     <%= yield %>
+    
+  <footer>
+    <p>GET MONSTER! 賃貸</p>
+  </footer>
+  
   </body>
 </html>

@@ -1,3 +1,5 @@
+<div class="container">
+
 <h1>GET MONSTER! 賃貸</h1>
 <p><%= @user.name %>さんのページ</p>
 
@@ -11,7 +13,7 @@
 <% end %>
 
 <p>エリアから絞り込む</p>
-  <div>
+  <div class="user-panel">
 　　<%= link_to "渋谷区", properties_path(), search: true %>
 　　<%= link_to "千代田区", properties_path %>
 　　<%= link_to "新宿区", properties_path %>
@@ -43,4 +45,5 @@
 <p><%= link_to "GET報告する", new_report_path %></p>
 
 <p>Legend Monster通知機能</p>
+</div>
 
