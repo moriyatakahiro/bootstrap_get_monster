@@ -65,6 +65,7 @@
   <div class="field">
     <%= form.label :物件の画像 %>
     <%= form.file_field :image %>
+    <%= form.hidden_field :image_cache %>
   </div>
  
   <%= form.submit "登録する" %>

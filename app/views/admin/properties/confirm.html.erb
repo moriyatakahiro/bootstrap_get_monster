@@ -16,6 +16,7 @@
 　<%= form.hidden_field :stop_count %>
 　<%= form.hidden_field :stop_adress %>
 　<%= form.hidden_field :image %>
+　<%= form.hidden_field :image_cache %>
 　
  <div class="property_name">
     <%= form.label :物件名 %>
@@ -70,6 +71,7 @@
   <div class="field">
     <%= form.label :物件の画像 %>
     <%= form.file_field :image %>
+    <%= form.hidden_field :image_cache %>
   </div>
   
    <%= form.submit  "登録する" %>
