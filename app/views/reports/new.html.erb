@@ -13,7 +13,7 @@
   </div><br>
   <div class="report_city">
     
-    東京都<%= form.text_field :city %>区
+    東京都<%= select :city,:name,Report.cities.keys.to_a %>区
   
     
     <%= form.text_field :town %>町

@@ -9,6 +9,7 @@ class ReportsController < ApplicationController
 
   def create
     @report = Report.new(report_params)
+    @report.city = params[:city][:name]
     @report.user_id = current_user.id
     if @report.save
       redirect_to reports_path

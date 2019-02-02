@@ -22,7 +22,7 @@
     〒<%= form.text_field :postful_code %>
     -<%= form.text_field :postful_code_after %>
  
-     東京都<%= form.text_field :city %>区
+     東京都<%= select :city,:name,Property.cities.keys.to_a %>区
   
     
     <%= form.text_field :town %>町
