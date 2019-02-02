@@ -4,9 +4,7 @@
     <br>
     <div>
     <strong></strong>
-    <% if property.image.url.present? %>
-      <%= image_tag property.image.url %>
-    <% end %>
+      <%= image_tag @property.image.url %>
   </div>
     <div>住所 〒<%= @property.postful_code %>-
       <%= @property.postful_code_after %>

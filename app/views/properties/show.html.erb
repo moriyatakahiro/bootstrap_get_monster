@@ -5,9 +5,7 @@
 <h2>物件名  <%= @property.name %></h2>
     <br>
     <strong></strong>
-    <% if property.image.url.present? %>
-      <%= image_tag property.image.url %>
-    <% end %>
+      <%= image_tag @property.image.url %>
     <div>住所 〒<%= @property.postful_code %>-
       <%= @property.postful_code_after %>
       <%= @property.city %>区
@@ -34,4 +32,27 @@
   <% end %>
   <%= link_to 'お問い合わせする', new_property_contact_path(@property) %>
 </div>
+
+<div>
+  <% if Report.cities[:name] == Property.cities[:name] %>
+    <% @reports.each do |report| %>
+      <div>
+        <p>捕まえたポケモン：<%= report.title %></p>
+        <p><%= report.content %></p>
+      </div>
+      <div>
+        捕まえた場所：東京都<%= report.city %>区
+        <%= report.town %>町
+        <%= report.adress %>丁目
+      </div>
+      <div>
+        <strong></strong>
+          <% if report.image.url.present? %>
+            <%= image_tag report.image.url %>
+          <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
 <% end %>
