@@ -1,7 +1,7 @@
 class Report < ApplicationRecord
     mount_uploader :image, ImageUploader
     
-    has_many :encount
+    
     
     enum city:{
     千代田: 0,

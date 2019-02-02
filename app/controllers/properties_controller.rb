@@ -33,6 +33,7 @@ class PropertiesController < ApplicationController
   def show
     @property = Property.find(params[:id])
     @favorite = current_user.favorites.find_by(property_id: @property.id)
+    @report = Report.where(city: name = @property.city)
   end
   
   def destroy

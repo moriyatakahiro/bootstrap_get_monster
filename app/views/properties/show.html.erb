@@ -34,8 +34,8 @@
 </div>
 
 <div>
-  <% if Report.cities[:name] == Property.cities[:name] %>
-    <% @reports.each do |report| %>
+  <h1>付近で捕まえたポケモン</h1>
+    <% @report.each do |report| %>
       <div>
         <p>捕まえたポケモン：<%= report.title %></p>
         <p><%= report.content %></p>
@@ -52,7 +52,6 @@
           <% end %>
       </div>
     <% end %>
-  <% end %>
 </div>
 
 <% end %>
