@@ -1,3 +1,5 @@
+<div class="container">
+
 <h1>物件一覧</h1>
 
 <%= link_to '新しく物件を投稿する', new_admin_property_path %>
@@ -8,10 +10,8 @@
     <br>
     <div>
     <strong></strong>
-    <% if property.image.url.present? %>
       <%= image_tag property.image.url %>
-    <% end %>
-  </div>
+    </div>
     <div>住所 〒<%= property.postful_code %>
       -<%= property.postful_code_after %>
       東京都<%= property.city %>区
@@ -36,3 +36,4 @@
     
   
 <% end %>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190201073359) do
+ActiveRecord::Schema.define(version: 20190202042540) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 20190201073359) do
   create_table "properties", force: :cascade do |t|
     t.string "name"
     t.integer "postful_code"
-    t.string "city"
     t.string "town"
     t.integer "adress"
     t.string "after_adress"
@@ -47,6 +46,7 @@ ActiveRecord::Schema.define(version: 20190201073359) do
     t.integer "postful_code_after"
     t.bigint "user_id"
     t.text "image"
+    t.integer "city", limit: 2, default: 0, null: false
     t.index ["user_id"], name: "index_properties_on_user_id"
   end
 

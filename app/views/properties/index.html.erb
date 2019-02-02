@@ -8,6 +8,8 @@
   <div class="property-panel">
     <h2>物件名  <%= property.name %></h2>
     <br>
+    <strong></strong>
+        <%= image_tag property.image.url %>
     <div>住所 〒<%= property.postful_code %>
       -<%= property.postful_code_after %>
       東京都<%= property.city %>区
