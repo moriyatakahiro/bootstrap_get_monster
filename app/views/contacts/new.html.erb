@@ -1,3 +1,5 @@
+<div class="container">
+
 <%= form_with(model: Contact.new, local: true, url: property_contacts_path) do |form| %>
   <% if @contact.errors.any? %>
     <div id="error_explanation">
@@ -12,17 +14,17 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :名前 %>
+    <%= form.label :名前 %><br>
     <%= form.text_field :name, id: :contact_name %>
   </div>
 
   <div class="field">
-    <%= form.label :メールアドレス %>
+    <%= form.label :メールアドレス %><br>
     <%= form.text_field :email, id: :contact_email %>
   </div>
 
   <div class="field">
-    <%= form.label :お問い合わせ内容 %>
+    <%= form.label :お問い合わせ内容 %><br>
     <%= form.text_area :content, id: :contact_content %>
   </div>
 
@@ -30,3 +32,4 @@
     <%= form.submit %>
   </div>
 <% end %>
+</div>

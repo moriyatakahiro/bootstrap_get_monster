@@ -1,14 +1,13 @@
 <h1>GET報告</h1>
 
-<%= link_to 'GET一覧を見る', reports_path %><br>
 
 <%= form_with(model: @report) do |form| %>
   <div class="report_title">
-    <%= form.label :捕まえたポケモン %>
+    <%= form.label :捕まえたポケモン %><br>
     <%= form.text_field :title %>
-  </div><br>
+  </div>
   <div class="report_content">
-    <%= form.label :本文 %>
+    <%= form.label :本文 %><br>
     <%= form.text_field :content %>
   </div><br>
   <div class="report_city">

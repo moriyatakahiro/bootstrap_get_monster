@@ -3,7 +3,6 @@
 <h1>GET MONSTER! 賃貸</h1>
 <p><%= @user.name %>さんのページ</p>
 
-<p><%= link_to "お気に入り物件", favorites_path %></p>
 
 <%= form_tag properties_path, :method => 'get' do %> <%#　projects_pathはモデル名で読みかえること %>
   <p>
@@ -14,7 +13,7 @@
 
 <p>エリアから絞り込む</p>
   <div class="user-panel">
-　　<%= link_to "渋谷区", properties_path(), search: true %>
+　　<%= link_to "渋谷区", properties_path %>
 　　<%= link_to "千代田区", properties_path %>
 　　<%= link_to "新宿区", properties_path %>
 　　<%= link_to "豊島区", properties_path %>
@@ -42,7 +41,6 @@
 　</div>　
   
   
-<p><%= link_to "GET報告する", new_report_path %></p>
 
 <p>Legend Monster通知機能</p>
 </div>

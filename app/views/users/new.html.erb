@@ -1,3 +1,5 @@
+<div class="container">
+
 <h1>サインアップ</h1>
 
 <% if @user.errors.any? %>
@@ -13,20 +15,21 @@
 
 <%= form_with(model: @user, local: true) do |f| %>  
   <div>
-  <%= f.label :名前 %>
+  <%= f.label :名前 %><br>
   <%= f.text_field :name %>
   </div>
   <div>
-  <%= f.label :メールアドレス %>
+  <%= f.label :メールアドレス %><br>
   <%= f.email_field :email %>
   </div>
   <div>
-  <%= f.label :パスワード %>
+  <%= f.label :パスワード %><br>
   <%= f.password_field :password %>
   </div>
   <div>
-  <%= f.label :確認用パスワード %>
+  <%= f.label :確認用パスワード %><br>
   <%= f.password_field :password_confirmation %>
-  </div>
+  </div><br>
   <%= f.submit "アカウント作成" %>
 <% end %>
+</div>
