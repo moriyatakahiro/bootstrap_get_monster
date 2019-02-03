@@ -15,8 +15,6 @@
 　<%= form.hidden_field :encount_monster %>
 　<%= form.hidden_field :stop_count %>
 　<%= form.hidden_field :stop_adress %>
-　<%= form.hidden_field :image %>
-　<%= form.hidden_field :image_cache %>
 　
  <div class="property_name">
     <%= form.label :物件名 %>
@@ -70,7 +68,7 @@
   </div>
   <div class="field">
     <%= form.label :物件の画像 %>
-    <%= form.file_field :image %>
+    <%= image_tag(@property.image.url) if @property.image.present? %>
     <%= form.hidden_field :image_cache %>
   </div>
   
