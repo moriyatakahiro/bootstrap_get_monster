@@ -68,7 +68,7 @@
   </div>
   <div class="field">
     <%= form.label :物件の画像 %>
-    <%= image_tag(@property.image.url) if @property.image.present? %>
+    <%= image_tag(@property.image.url) %>
     <%= form.hidden_field :image_cache %>
   </div>
   
