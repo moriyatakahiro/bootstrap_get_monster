@@ -67,10 +67,10 @@
     <%= form.label :ポケストップの場所 %>
     <%= form.text_field :stop_adress %>
   </div>
-  <% @property.images.each do |images| %>
     <div class="field">
+  <% @property.images.each do |images| %>
       <%= form.label :物件の画像 %>
-      <%= image_tag @property.images.url %>
+      <%= image_tag images.url %>
       <%= form.hidden_field :image_cache %>
     </div>
   <% end %>

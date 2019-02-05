@@ -33,9 +33,7 @@ gem 'letter_opener_web'
 gem 'carrierwave'
 gem 'mini_magick'
 
-gem 'better_errors'
-gem 'pry-rails'
-gem 'binding_of_caller'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -47,6 +45,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'pry-rails'
 end
 
