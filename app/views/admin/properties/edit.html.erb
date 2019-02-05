@@ -62,10 +62,13 @@
     <%= form.label :ポケストップの場所 %>
     <%= form.text_field :stop_adress %>
   </div>
-  <div class="field">
-    <%= form.label :物件の画像 %>
-    <%= form.file_field :images %>
-  </div>
+ <div class="field">
+  <% @property.images.each do |images| %>
+      <%= form.label :物件の画像 %>
+      <%= image_tag images.url %>
+      <%= form.hidden_field :images_cache %>
+    </div>
+  <% end %>
  
   <%= form.submit %>
 <% end %>

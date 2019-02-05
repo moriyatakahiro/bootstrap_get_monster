@@ -6,8 +6,12 @@
   
 <h2>物件名  <%= @property.name %></h2>
     <br>
+    <div>
     <strong></strong>
-      <%= image_tag @property.image.url %>
+     <% @property.images.each do |images| %>
+       <%= image_tag images.url %>
+     <% end %>
+    </div>
     <div>住所 〒<%= @property.postful_code %>-
       <%= @property.postful_code_after %>
       <%= @property.city %>区
@@ -48,11 +52,11 @@
         <%= report.adress %>丁目
       </div>
       <div>
-        <strong></strong>
-          <% if report.image.url.present? %>
-            <%= image_tag report.image.url %>
-          <% end %>
-      </div>
+      <strong></strong>
+        <% property.images.each do |images| %>
+          <%= image_tag images.url %>
+        <% end %>
+    </div>
     <% end %>
 </div>
 

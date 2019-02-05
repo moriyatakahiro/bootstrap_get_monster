@@ -4,8 +4,10 @@
     <br>
     <div>
     <strong></strong>
-      <%= image_tag @property.image.url %>
-  </div>
+     <% @property.images.each do |images| %>
+       <%= image_tag images.url %>
+     <% end %>
+    </div>
     <div>住所 〒<%= @property.postful_code %>-
       <%= @property.postful_code_after %>
       <%= @property.city %>区

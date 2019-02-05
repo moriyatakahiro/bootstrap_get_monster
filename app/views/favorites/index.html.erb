@@ -7,6 +7,12 @@
       
       <h2>物件名  <%= favorite.property.name %></h2>
     <br>
+    <div>
+    <strong></strong>
+     <% favorite.property.images.each do |images| %>
+       <%= image_tag images.url %>
+     <% end %>
+    </div>
     <div>住所 〒<%= favorite.property.postful_code %>
       -<%= favorite.property.postful_code_after %>
       東京都<%= favorite.property.city %>区
