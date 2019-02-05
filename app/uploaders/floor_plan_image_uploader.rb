@@ -1,5 +1,6 @@
 class FloorPlanImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
+  require 'mini_magick'
   
   storage :file
   

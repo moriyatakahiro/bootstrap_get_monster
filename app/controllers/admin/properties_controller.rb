@@ -44,13 +44,12 @@ class Admin::PropertiesController < ApplicationController
     @property = Property.new(property_params)
     @property.city = params[:city][:name]
     @property.user_id = current_user.id
-    binding.pry
     render :new if @property.invalid?
   end
   
   private
   
   def property_params
-    params.require(:property).permit(:name, :city, :town, :postful_code, :postful_code_after, :adress, :after_adress, :rent, :floor_plan, :floor_space, :encount_monster, :stop_count, :stop_adress, :property_age, {image: []}, :image_cache)
+    params.require(:property).permit(:name, :city, :town, :postful_code, :postful_code_after, :adress, :after_adress, :rent, :floor_plan, :floor_space, :encount_monster, :stop_count, :stop_adress, :property_age, :image_cache, {images: []})
   end
 end

@@ -1,4 +1,4 @@
-<%= form_with(model: @property, local: true ,url: confirm_admin_properties_path ) do |form| %>
+<%= form_with(model: @property, local: true,url: confirm_admin_properties_path ) do |form| %>
    <% if @property.errors.any? %>
     <div id="error_explanation">
       <h2><%= @property.errors.count %>件のエラーがあります。</h2>
@@ -64,8 +64,7 @@
   </div>
   <div class="field">
     <%= form.label :物件の画像 %>
-    <%= form.file_field :image, multiple: true %>
-    <%= form.hidden_field :image_cache %>
+    <%= form.file_field :images, multiple: true %>
   </div>
  
   <%= form.submit "登録する" %>

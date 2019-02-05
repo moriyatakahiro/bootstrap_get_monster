@@ -15,6 +15,7 @@
 　<%= form.hidden_field :encount_monster %>
 　<%= form.hidden_field :stop_count %>
 　<%= form.hidden_field :stop_adress %>
+　<%= form.hidden_field :images %>
 　
  <div class="property_name">
     <%= form.label :物件名 %>
@@ -66,11 +67,13 @@
     <%= form.label :ポケストップの場所 %>
     <%= form.text_field :stop_adress %>
   </div>
-  <div class="field">
-    <%= form.label :物件の画像 %>
-    <%= image_tag(@property.image.url) %>
-    <%= form.hidden_field :image_cache %>
-  </div>
+  <% @property.images.each do |images| %>
+    <div class="field">
+      <%= form.label :物件の画像 %>
+      <%= image_tag @property.images.url %>
+      <%= form.hidden_field :image_cache %>
+    </div>
+  <% end %>
   
    <%= form.submit  "登録する" %>
 <% end %>
