@@ -10,8 +10,9 @@
     <br>
     <div>
     <strong></strong>
-      <%= image_tag property.image.url %>
-    </div>
+     <% property.images.each do |images| %>
+       <%= image_tag images.url %>
+     <% end %>
     <div>住所 〒<%= property.postful_code %>
       -<%= property.postful_code_after %>
       東京都<%= property.city %>区

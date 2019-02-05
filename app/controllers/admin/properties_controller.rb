@@ -13,7 +13,7 @@ class Admin::PropertiesController < ApplicationController
     if @property.save
       redirect_to admin_properties_path, notice: "物件を投稿しました！"
     else
-      render 'admin/new'
+      render 'new'
     end
   end
   

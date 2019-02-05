@@ -1,6 +1,6 @@
 <h3>以下の内容で、送信する。</h3>
 
-<%= form_with(model: @property, url: properties_path, local: true) do |form| %>
+<%= form_with(model: @property, url: admin_properties_path, local: true) do |form| %>
   <%= form.hidden_field :name %>
   <%= form.hidden_field :postful_code %>
   <%= form.hidden_field :postful_code_after %>
@@ -71,7 +71,7 @@
   <% @property.images.each do |images| %>
       <%= form.label :物件の画像 %>
       <%= image_tag images.url %>
-      <%= form.hidden_field :image_cache %>
+      <%= form.hidden_field :images_cache %>
     </div>
   <% end %>
   
