@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   end
   
   resources :properties do
+    get :city, on: :member
     resources :contacts, only: [:new, :create, :show]
   end
 end

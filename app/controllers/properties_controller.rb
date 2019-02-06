@@ -1,6 +1,10 @@
 class PropertiesController < ApplicationController
   def index
-    @properties = Property.search(params[:search])
+    if (params[:search])
+      @properties = Property.search(params[:search])
+    else
+      @properties = Property.search_city(params[:id])
+    end
   end
   
   def new
@@ -48,9 +52,14 @@ class PropertiesController < ApplicationController
     render :new if @property.invalid?
   end
   
+  def city
+    @properties = Property.search_city(params[:id])
+    render 'index'
+  end
+  
   private
   
   def property_params
-    params.require(:property).permit(:name, :city, :town, :postful_code, :postful_code_after, :adress, :after_adress, :rent, :floor_plan, :floor_space, :encount_monster, :stop_count, :stop_adress, :property_age, :image)
+    params.require(:property).permit(:name, :city, :town, :postful_code, :postful_code_after, :adress, :after_adress, :rent, :floor_plan, :floor_space, :encount_monster, :stop_count, :stop_adress, :property_age, :image, :search)
   end
 end

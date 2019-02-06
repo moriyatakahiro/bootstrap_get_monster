@@ -10,7 +10,12 @@ class Property < ApplicationRecord
       Property.all
     end
   end
-    
+  
+  def self.search_city(city)
+    area = {"shibuya" => "渋谷", "shinjyuku" => "新宿", "toshima" => "豊島"}
+    Property.where(city: area[city])
+  end
+
     validates :name, :city, :town, :postful_code, :postful_code_after, :adress, :after_adress, :rent, :floor_plan, :floor_space, :encount_monster, :stop_count, :stop_adress, :property_age, :images, presence: true
 
   enum city:{

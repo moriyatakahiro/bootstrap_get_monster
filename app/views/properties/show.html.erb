@@ -43,7 +43,7 @@
   <h1>付近で捕まえたポケモン</h1>
     <% @report.each do |report| %>
       <div>
-        <p>捕まえたポケモン：<%= report.title %></p>
+        <h2>捕まえたポケモン：<%= report.title %></h2>
         <p><%= report.content %></p>
       </div>
       <div>
@@ -52,10 +52,10 @@
         <%= report.adress %>丁目
       </div>
       <div>
-      <strong></strong>
-        <% property.images.each do |images| %>
-          <%= image_tag images.url %>
-        <% end %>
+       <strong></strong>
+          <% if report.image.url.present? %>
+            <%= image_tag report.image.url %>
+          <% end %>
     </div>
     <% end %>
 </div>

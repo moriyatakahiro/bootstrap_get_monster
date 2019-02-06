@@ -47,6 +47,7 @@ class Admin::PropertiesController < ApplicationController
     render :new if @property.invalid?
   end
   
+  
   private
   
   def property_params

@@ -13,33 +13,30 @@
 
 <p>エリアから絞り込む</p>
   <div class="user-panel">
-　　<%= link_to "渋谷区", properties_path %>
-　　<%= link_to "千代田区", properties_path %>
-　　<%= link_to "新宿区", properties_path %>
-　　<%= link_to "豊島区", properties_path %>
-　　<%= link_to "品川区", properties_path %>
-　　<%= link_to "中央区", properties_path %>
-　　<%= link_to "港区", properties_path %>
-　　<%= link_to "練馬区", properties_path %>
-　　<%= link_to "板橋区", properties_path %>
-　　<%= link_to "台東区", properties_path %>
-　　<%= link_to "江東区", properties_path %>
-　　<%= link_to "葛飾区", properties_path %>
-　　<%= link_to "目黒区", properties_path %>
-　　<%= link_to "大田区", properties_path %>
-　　<%= link_to "足立区", properties_path %><br>
-　　<%= link_to "中野区", properties_path %>
-　　<%= link_to "江戸川区", properties_path %>
-　　<%= link_to "文京区", properties_path %>
-　　<%= link_to "世田谷区", properties_path %>
-　　<%= link_to "杉並区", properties_path %>
-　　<%= link_to "北区", properties_path %>
-　　<%= link_to "荒川区", properties_path %>
-　　<%= link_to "墨田区", properties_path %>
-　　
-　　
-　</div>　
-  
+　　<%= link_to "渋谷区", city_property_path("shibuya") %>
+　　<%= link_to "千代田区", city_property_path("tiyoda") %>
+　　<%= link_to '新宿区', city_property_path("shinjyuku") %>
+　　<%= link_to "豊島区", city_property_path("toshima") %>
+　　<%= link_to "品川区", city_property_path("sinagawa") %>
+　　<%= link_to "中央区", city_property_path("tyu-o") %>
+　　<%= link_to "港区", city_property_path("minato") %>
+　　<%= link_to "練馬区", city_property_path("nerima") %>
+　　<%= link_to "板橋区", city_property_path("itabashi") %>
+　　<%= link_to "台東区", city_property_path("taito") %>
+　　<%= link_to "江東区", city_property_path("koto") %>
+　　<%= link_to "葛飾区", city_property_path("katsushika") %>
+　　<%= link_to "目黒区", city_property_path("meguro") %>
+　　<%= link_to "大田区", city_property_path("o-ta") %>
+　　<%= link_to "足立区", city_property_path("adati") %><br>
+　　<%= link_to "中野区", city_property_path("nakano") %>
+　　<%= link_to "江戸川区", city_property_path("edogawa") %>
+　　<%= link_to "文京区", city_property_path("bunkyo") %>
+　　<%= link_to "世田谷区", city_property_path("setagaya") %>
+　　<%= link_to "杉並区", city_property_path("suginami") %>
+　　<%= link_to "北区", city_property_path("kita") %>
+　　<%= link_to "荒川区", city_property_path("arakawa") %>
+　　<%= link_to "墨田区", city_property_path("sumida") %>
+  </div>
   
 
 <p>Legend Monster通知機能</p>
