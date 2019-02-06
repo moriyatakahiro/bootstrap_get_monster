@@ -3,7 +3,7 @@
   <h1>お気に入り一覧</h1>
   
   <div class="row">
-    <% current_user.favorites.each do |favorite| %>
+    <% @favorites.each do |favorite| %>
       
       <h2>物件名  <%= favorite.property.name %></h2>
     <br>
@@ -32,6 +32,7 @@
   
     <div>
         <%= link_to 'いいね！解除する', favorite_path(id: favorite.id), method: :delete, class: 'btn btn-danger' %>
+        <%= link_to '詳細を確認する', property_path(favorite.property.id) %>
     </div>    
   <% end %>
 </div>

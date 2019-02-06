@@ -8,4 +8,10 @@ class FavoritesController < ApplicationController
     @favorite = current_user.favorites.find_by(id: params[:id]).destroy
     redirect_to properties_url
   end
+  
+  def index
+    @favorites = current_user.favorites
+  end
+  
+  
 end
