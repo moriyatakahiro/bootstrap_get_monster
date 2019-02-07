@@ -13,12 +13,12 @@
   
   
   <div class="property_name">
-    <%= form.label :物件名 %><br>
+    <%= form.label :name %><br>
     <%= form.text_field :name %>
   </div>
   <br>
   <div class="postful_code">
-    <%= form.label :郵便番号 %>
+    <%= form.label :posrful_code %>
     〒<%= form.text_field :postful_code %>
     -<%= form.text_field :postful_code_after %>
  
@@ -35,35 +35,35 @@
   </div>
   <br>
   <div class="property_age">
-    <%= form.label :築年数 %>
+    <%= form.label :age %>
     築<%= form.text_field :property_age %>年
   </div>
   <div class="property_rent">
-    <%= form.label :家賃 %>
+    <%= form.label :rent %>
     <%= form.text_field :rent %>円
   </div>
   <div class="property_floor_space">
-    <%= form.label :広さ %>
+    <%= form.label :floor_space %>
     <%= form.text_field :floor_space %>
   </div>
   <div class="property_floor_plan">
-    <%= form.label :間取り %>
+    <%= form.label :floor_plan %>
     <%= form.text_field :floor_plan %>
   </div>
   <div class="property_encount_monster">
-    <%= form.label :出現するポケモン %>
+    <%= form.label :encount_monster %>
     <%= form.text_field :encount_monster %>
   </div>
   <div class="property_stop_count">
-    <%= form.label :ポケストップの数 %>
+    <%= form.label :stop_count %>
     <%= form.text_field :stop_count %>
   </div>
   <div class="property_stop_adress">
-    <%= form.label :ポケストップの場所 %>
+    <%= form.label :stop_adress %>
     <%= form.text_field :stop_adress %>
   </div>
   <div class="field">
-    <%= form.label :物件の画像 %>
+    <%= form.label :images %>
     <%= form.file_field :images, multiple: true %>
     <%= form.hidden_field :images_cache %><br>
   </div>

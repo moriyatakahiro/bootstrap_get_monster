@@ -15,19 +15,19 @@
 
 <%= form_with(model: @user, local: true) do |f| %>  
   <div>
-  <%= f.label :名前 %><br>
+  <%= f.label :name %><br>
   <%= f.text_field :name %>
   </div>
   <div>
-  <%= f.label :メールアドレス %><br>
+  <%= f.label :email %><br>
   <%= f.email_field :email %>
   </div>
   <div>
-  <%= f.label :パスワード %><br>
+  <%= f.label :password %><br>
   <%= f.password_field :password %>
   </div>
   <div>
-  <%= f.label :確認用パスワード %><br>
+  <%= f.label :password_confirmation %><br>
   <%= f.password_field :password_confirmation %>
   </div><br>
   <%= f.submit "アカウント作成" %>
