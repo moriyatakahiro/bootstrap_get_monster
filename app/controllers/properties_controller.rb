@@ -64,7 +64,7 @@ class PropertiesController < ApplicationController
   end
   
   def set_property
-    @property = Propperty.find(params[:id])
+    @property = Property.find(params[:id])
   end
   
   def login

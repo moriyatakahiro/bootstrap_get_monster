@@ -1,0 +1,33 @@
+ja:
+  activerecord:
+    models:
+      property: "物件"
+      user: "ユーザー"
+      contact: "メール"
+    attributes:
+      property:
+        name: "物件名"
+        postful_code: "郵便番号（前）"
+        town: "町名"
+        adress: "番地"
+        after_adress: "号"
+        property_age: "築年数"
+        rent: "家賃"
+        floor_space: "広さ"
+        floor_plan: "間取り"
+        encount_monster: "出現するポケモン"
+        stop_count: "ポケストップの数"
+        stop_adress: "ポケストップの住所"
+        postful_code_after: "郵便番号（後）"
+        city: "区"
+        images: "画像"
+      user:
+        name: "名前"
+        email: "メールアドレス"
+        password: "パスワード"
+        age: "年齢"
+        sex: "性別"
+      contact:
+        name: "名前"
+        email: "メールアドレス"
+        content: "お問い合わせ内容"
