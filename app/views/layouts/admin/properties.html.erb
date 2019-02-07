@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Monster</title>
+      <%= csrf_meta_tags %>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    
+    <header>
+    <ul>
+      <% if logged_in? %>
+        <li><%= link_to "不動産業者ページ", admin_user_path(current_user.id) %></li>
+        <li><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
+      <% else %>
+        <li><%= link_to "ログイン", new_session_path %></li>
+      <% end %>
+    </ur>
+  </header>
+  
+     <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %>
+    
+
+
+    <%= yield %>
+    
+    
+  
+  </body>
+</html>
