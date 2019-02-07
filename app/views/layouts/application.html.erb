@@ -15,13 +15,14 @@
         <li><%= link_to "マイページ", user_path(current_user.id) %></li>
         <li><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
         <li><%= link_to "お気に入り一覧", favorites_path %></li>
+        <li><%= link_to "プロフィール編集", edit_user_path(current_user.id) %></li>
+        <li><%= link_to "GET一覧", reports_path %></li>
+        <li><%= link_to 'GET報告', new_report_path %></li>
       <% else %>
         <li><%= link_to "サインアップ", new_user_path %></li>
         <li><%= link_to "ログイン", new_session_path %></li>
       <% end %>
-      <li><%= link_to "GET一覧", reports_path %></li>
-      <li><%= link_to 'GET報告', new_report_path %><br></li>
-    </ul>
+    </ur>
   </header>
   
      <% flash.each do |key, value| %>

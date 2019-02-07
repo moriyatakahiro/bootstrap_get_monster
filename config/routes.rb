@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   
   namespace :admin do
-    resources :users
+    resources :users, only: [:new, :create, :show, :edit, :update]
   end
   
-  resources :users
+  resources :users, only: [:new, :create, :show, :edit, :update]
   
   namespace :admin do
     resources :properties do

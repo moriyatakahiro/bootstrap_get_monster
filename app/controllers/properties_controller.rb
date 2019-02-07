@@ -1,4 +1,8 @@
 class PropertiesController < ApplicationController
+  before_action :set_property, only: [:show, :edit, :update, :destroy]
+  before_action :login, only: [ :new, :show, :edit, :update, :destroy]
+  before_action :ensure_correct_user, only: [:edit]
+  
   def index
     if (params[:search])
       @properties = Property.search(params[:search])
@@ -22,11 +26,9 @@ class PropertiesController < ApplicationController
   end
   
   def edit
-    @property = Property.find(params[:id])
   end
   
   def update
-    @property= Property.find(params[:id])
     if @property.update(property_params)
       redirect_to admin_properties_path, notice: "物件を編集しました！"
     else
@@ -35,13 +37,11 @@ class PropertiesController < ApplicationController
   end
   
   def show
-    @property = Property.find(params[:id])
     @favorite = current_user.favorites.find_by(property_id: @property.id)
     @report = Report.where(city: @property.city)
   end
   
   def destroy
-    @property = Property.find(params[:id])
     @property.destroy
     redirect_to admin_properties_path, notice:"物件を削除しました！"
   end
@@ -61,5 +61,21 @@ class PropertiesController < ApplicationController
   
   def property_params
     params.require(:property).permit(:name, :city, :town, :postful_code, :postful_code_after, :adress, :after_adress, :rent, :floor_plan, :floor_space, :encount_monster, :stop_count, :stop_adress, :property_age, :image, :search)
+  end
+  
+  def set_property
+    @property = Propperty.find(params[:id])
+  end
+  
+  def login
+    unless  logged_in?
+      redirect_to new_session_path
+    end
+  end
+  
+  def ensure_correct_user
+    if @current_user != @property.user
+      redirect_to new_session_path, notice: "無効なアクセスです"
+    end
   end
 end
