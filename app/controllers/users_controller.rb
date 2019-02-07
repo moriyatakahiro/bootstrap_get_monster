@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
+  before_action :ensure_correct_user, only: [:show, :edit, :update, :create]
   
   def new
     @user = User.new
@@ -40,5 +41,11 @@ private
   
   def set_user
     @user = User.find(params[:id])
+  end
+  
+  def ensure_correct_user
+    if @current_user != @user
+      redirect_to new_session_path, notice: "無効なアクセスです"
+    end
   end
 end
