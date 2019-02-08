@@ -26,6 +26,7 @@ class ContactsController < ApplicationController
     @property = Property.find(params[:property_id])
       if @contact.save
         ContactMailer.contact_mail(@contact, @property).deliver
+        flash[:notice] = "メールを送信しました"
         redirect_back(fallback_location: root_path)
       else
         render :new
