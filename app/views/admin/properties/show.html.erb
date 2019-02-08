@@ -23,3 +23,25 @@
     <div>ポケストップの数 <%= @property.stop_count %></div>
     <div>ポケストップの場所 <%= @property.stop_adress %></div>
     <div>出現するポケモン <%= @property.encount_monster %></div>
+    
+  <h1>付近で捕まえたポケモン</h1>
+  <% @report.each do |report| %>
+      <div>
+        <h2>捕まえたポケモン：<%= report.title %></h2>
+        <p><%= report.content %></p>
+      </div>
+      <div>
+        捕まえた場所：東京都<%= report.city %>区
+        <%= report.town %>町
+        <%= report.adress %>丁目
+      </div>
+      <div>
+       <strong></strong>
+          <% if report.image.url.present? %>
+            <%= image_tag report.image.url %>
+          <% end %>
+    　 </div>
+    　 <div>
+         <%= link_to '投稿を削除する', admin_report_path(report.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
+       </div>
+  <% end %>

@@ -19,6 +19,11 @@ Rails.application.routes.draw do
     resources :users, only: [:new, :create, :show, :edit, :update]
   end
   
+  namespace :admin do
+    resources :reports, only: [:index, :destroy]
+  end
+  
+  
   resources :users, only: [:new, :create, :show, :edit, :update]
   
   namespace :admin do

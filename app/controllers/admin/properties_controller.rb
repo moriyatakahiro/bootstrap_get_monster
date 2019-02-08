@@ -33,6 +33,7 @@ class Admin::PropertiesController < ApplicationController
   end
   
   def show
+    @report = Report.where(city: @property.city)
   end
   
   def destroy

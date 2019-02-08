@@ -1,0 +1,27 @@
+<div class="container">
+
+<h1>GET一覧</h1>
+
+<%= link_to 'GET報告する', new_report_path %><br>
+
+<% @reports.each do |report| %>
+  <div>
+    <h2>捕まえたポケモン：<%= report.title %></h2>
+    <p><%= report.content %></p>
+  </div>
+  <div>
+    捕まえた場所：東京都<%= report.city %>区
+    <%= report.town %>町
+    <%= report.adress %>丁目
+  </div>
+  <div>
+    <strong></strong>
+    <% if report.image.url.present? %>
+      <%= image_tag report.image.url %>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to '投稿を削除する', admin_report_path(report.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
+  </div>
+<% end %>
+</div>
