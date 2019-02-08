@@ -1,7 +1,20 @@
+<div class="container">
+
 <h1>GET報告</h1>
 
+<% if @report.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@report.errors.count, "件") %> のエラーがあります</h2>
+    <ul>
+    <% @report.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 
-<%= form_with(model: @report) do |form| %>
+
+<%= form_with(model: @report, local: true) do |form| %>
   <div class="report_title">
     <%= form.label :捕まえたポケモン %><br>
     <%= form.text_field :title %>
@@ -26,3 +39,4 @@
 </div>
   <%= form.submit %>
 <% end %>
+</div>
