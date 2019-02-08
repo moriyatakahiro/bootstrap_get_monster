@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   
   def update
     if @user.update(user_params)
-      redirect_to new_session_path, notice: "アカウントを編集しました！"
+      redirect_to user_path(current_user.id), notice: "アカウントを編集しました"
     else
       render 'new'
     end

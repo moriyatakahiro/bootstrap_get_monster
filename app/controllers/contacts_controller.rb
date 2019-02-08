@@ -25,7 +25,8 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     @property = Property.find(params[:property_id])
       if @contact.save
-        ContactMailer.contact_mail(@contact, @property).deliver  
+        ContactMailer.contact_mail(@contact, @property).deliver
+        redirect_back(fallback_location: root_path)
       else
         render :new
       end
