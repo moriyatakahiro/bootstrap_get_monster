@@ -41,7 +41,5 @@
             <%= image_tag report.image.url %>
           <% end %>
     　 </div>
-    　 <div>
-         <%= link_to '投稿を削除する', admin_report_path(report.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
-       </div>
+    　 
   <% end %>

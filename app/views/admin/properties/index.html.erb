@@ -32,10 +32,12 @@
     
     <div>
       <%= link_to '詳細を確認する', admin_property_path(property.id) %>
-    　<%= link_to "物件を編集する", edit_admin_property_path(property.id) %>
-    　<%= link_to '物件を削除する', property_path(property.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
+        <% if property.user == current_user %>
+    　     <%= link_to "物件を編集する", edit_admin_property_path(property.id) %>
+       　  <%= link_to '物件を削除する', property_path(property.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
+        <% end %>
     </div>
     
-  
-<% end %>
+<% end %> 
 </div>
+
