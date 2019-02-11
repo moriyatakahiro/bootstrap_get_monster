@@ -1,4 +1,10 @@
 .container{
     margin-top:20px;
     padding-bottom: 100px;
+    list-style: none;
+    text-align: center;
+}
+
+div.error_explanation li {
+    list-style:none;
 }

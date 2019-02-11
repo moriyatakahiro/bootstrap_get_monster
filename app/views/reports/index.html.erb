@@ -4,7 +4,7 @@
 
 <%= link_to 'GET報告する', new_report_path %><br>
 
-<% @reports.each do |report| %>
+<% @reports.reverse_each do |report| %>
   <div>
     <h2>捕まえたポケモン：<%= report.title %></h2>
     <p><%= report.content %></p>

@@ -16,7 +16,6 @@
       <%= @property.postful_code_after %>
       <%= @property.city %>区
       <%= @property.town %>
-      <%= @property.adress %>丁目
       <%= @property.after_adress %>
     </div>
     <br>
@@ -41,7 +40,7 @@
 
 <div>
   <h1>付近で捕まえたポケモン</h1>
-    <% @report.each do |report| %>
+    <% @report.reverse_each do |report| %>
       <div>
         <h2>捕まえたポケモン：<%= report.title %></h2>
         <p><%= report.content %></p>

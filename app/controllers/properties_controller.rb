@@ -6,8 +6,10 @@ class PropertiesController < ApplicationController
   def index
     if (params[:search])
       @properties = Property.search(params[:search])
-    else
+    elsif (params[:id])
       @properties = Property.search_city(params[:id])
+    else
+      @properties = Property.all
     end
   end
   
@@ -57,10 +59,14 @@ class PropertiesController < ApplicationController
     render 'index'
   end
   
+  def latest
+    @Properties = Property.all
+  end
+  
   private
   
   def property_params
-    params.require(:property).permit(:name, :city, :town, :postful_code, :postful_code_after, :adress, :after_adress, :rent, :floor_plan, :floor_space, :encount_monster, :stop_count, :stop_adress, :property_age, :image, :search)
+    params.require(:property).permit(:name, :city, :town, :postful_code, :postful_code_after, :after_adress, :rent, :floor_plan, :floor_space, :encount_monster, :stop_count, :stop_adress, :property_age, :image, :search)
   end
   
   def set_property

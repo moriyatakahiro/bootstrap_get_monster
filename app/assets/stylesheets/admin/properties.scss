@@ -1,3 +1,15 @@
-// Place all the styles related to the Admin::properties controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.container{
+    margin-top:20px;
+    padding-bottom: 100px;
+    list-style: none;
+    text-align: center;
+}
+
+ul {
+    list-style:none;
+}
+
+.file_field{
+    margin-left: auto;
+    margin-right: auto;
+}

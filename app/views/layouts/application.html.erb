@@ -4,7 +4,9 @@
     <title>Monster</title>
       <%= csrf_meta_tags %>
       <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   </head>
 
   <body>
@@ -18,6 +20,7 @@
         <li><%= link_to "プロフィール編集", edit_user_path(current_user.id) %></li>
         <li><%= link_to "GET一覧", reports_path %></li>
         <li><%= link_to 'GET報告', new_report_path %></li>
+        <li><%= link_to "新着物件", properties_path %></li>
       <% else %>
         <li><%= link_to "サインアップ", new_user_path %></li>
         <li><%= link_to "ログイン", new_session_path %></li>

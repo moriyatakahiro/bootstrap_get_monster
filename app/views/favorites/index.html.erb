@@ -2,7 +2,7 @@
   <h1>お気に入り一覧</h1>
   
   <div class="row">
-    <% @favorites.each do |favorite| %>
+    <% @favorites.reverse_each do |favorite| %>
       
       <h2>物件名  <%= favorite.property.name %></h2>
     <br>

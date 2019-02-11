@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   end
   
   namespace :admin do
-    resources :reports, only: [:index, :destroy]
+    resources :reports, only: [:index, :destroy, :edit, :update]
   end
   
   
@@ -33,6 +33,7 @@ Rails.application.routes.draw do
       end
     end
   end
+  
   
   resources :properties do
     get :city, on: :member

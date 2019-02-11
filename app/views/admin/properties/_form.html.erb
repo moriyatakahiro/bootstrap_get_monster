@@ -25,10 +25,8 @@
      東京都<%= select :city,:name,Property.cities.keys.to_a %>区
   
     
-    <%= form.text_field :town %>町
+    <%= form.text_field :town %>:町名
  
-    
-    <%= form.text_field :adress %>丁目
  
     
     <%= form.text_field :after_adress %>
@@ -62,10 +60,12 @@
     <%= form.label :ポケストップの場所 %>
     <%= form.text_field :stop_adress %>
   </div>
+  <div style="text-align:center;">
   <div class="field">
     <%= form.label :画像 %>
-    <%= form.file_field :images, multiple: true %>
+    <%= form.file_field :images, multiple: true, class: 'file_field' %>
     <%= form.hidden_field :images_cache %><br>
+  </div>
   </div>
  
   <%= form.submit "登録する" %>

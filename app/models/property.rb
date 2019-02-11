@@ -5,7 +5,7 @@ class Property < ApplicationRecord
   mount_uploaders :images, FloorPlanImageUploader
   def self.search(search) #self.でクラスメソッドとしている
     if search # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
-      Property.where(['name LIKE ? OR encount_monster LIKE ? OR town LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
+      Property.where(['name LIKE ? OR encount_monster LIKE ? OR town LIKE ? OR rent LIKE ? OR floor_plan LIKE ? OR floor_space', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"])
     else
       Property.all
     end
@@ -16,7 +16,7 @@ class Property < ApplicationRecord
     Property.where(city: area[city])
   end
 
-    validates :name, :city, :town, :postful_code, :postful_code_after, :adress, :after_adress, :rent, :floor_plan, :floor_space, :encount_monster, :stop_count, :stop_adress, :property_age, :images, presence: true
+    validates :name, :city, :town, :postful_code, :postful_code_after, :after_adress, :rent, :floor_plan, :floor_space, :encount_monster, :stop_count, :stop_adress, :property_age, :images, presence: true
 
   enum city:{
     千代田: 0,

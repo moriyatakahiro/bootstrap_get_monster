@@ -33,7 +33,7 @@ gem 'letter_opener_web'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'redis-rails'
-
+gem 'jquery-rails'
 
 
 # Use Capistrano for deployment

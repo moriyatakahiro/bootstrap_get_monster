@@ -6,7 +6,6 @@
   <%= form.hidden_field :postful_code_after %>
   <%= form.hidden_field :city %>
 　<%= form.hidden_field :town %>
-　<%= form.hidden_field :adress %>
 　<%= form.hidden_field :after_adress %>
 　<%= form.hidden_field :property_age %>
 　<%= form.hidden_field :rent %>
@@ -16,64 +15,31 @@
 　<%= form.hidden_field :stop_count %>
 　<%= form.hidden_field :stop_adress %>
 　<%= form.hidden_field :images %>
+　<%= form.hidden_field :images_cache %>
 　
- <div class="property_name">
-    <%= form.label :物件名 %>
-    <%= form.text_field :name %>
-  </div>
-  <br>
-  <div class="postful_code">
-    <%= form.label :郵便番号 %>
-    〒<%= form.text_field :postful_code %>
-    -<%= form.text_field :postful_code_after %>
- 
-     東京都<%= @property.city %>区
-  
-    
-    <%= form.text_field :town %>町
- 
-    
-    <%= form.text_field :adress %>丁目
- 
-    
-    <%= form.text_field :after_adress %>
-  </div>
-  <br>
-  <div class="property_age">
-    <%= form.label :築年数 %>
-    築<%= form.text_field :property_age %>年
-  </div>
-  <div class="property_rent">
-    <%= form.label :家賃 %>
-    <%= form.text_field :rent %>円
-  </div>
-  <div class="property_floor_space">
-    <%= form.label :広さ %>
-    <%= form.text_field :floor_space %>
-  </div>
-  <div class="property_floor_plan">
-    <%= form.label :間取り %>
-    <%= form.text_field :floor_plan %>
-  </div>
-  <div class="property_encount_monster">
-    <%= form.label :出現するポケモン %>
-    <%= form.text_field :encount_monster %>
-  </div>
-  <div class="property_stop_count">
-    <%= form.label :ポケストップの数 %>
-    <%= form.text_field :stop_count %>
-  </div>
-  <div class="property_stop_adress">
-    <%= form.label :ポケストップの場所 %>
-    <%= form.text_field :stop_adress %>
-  </div>
-    <div class="field">
-  <% @property.images.each do |images| %>
-      <%= form.label :物件の画像 %>
-      <%= image_tag images.url %>
-      <%= form.hidden_field :images_cache %>
+ <h2>物件名  <%= @property.name %></h2>
+    <br>
+    <div>
+    <strong></strong>
+     <% @property.images.reverse_each do |images| %>
+       <%= image_tag images.url %>
+     <% end %>
     </div>
-  <% end %>
+    <div>住所 〒<%= @property.postful_code %>
+      -<%= @property.postful_code_after %>
+      東京都<%= @property.city %>区
+      <%= @property.town %>
+      <%= @property.after_adress %>
+    </div>
+    <br>
+    <div>築年数 <%= @property.property_age%>年</div>
+    <div>家賃 <%= @property.rent%>円</div>
+    <div>広さ <%= @property.floor_space%></div>
+    <div>間取り <%= @property.floor_plan %></div>
+    <div>ポケストップの数 <%= @property.stop_count %></div>
+    <div>ポケストップの場所 <%= @property.stop_adress %></div>
+    <div>出現するポケモン <%= @property.encount_monster %></div>
+    
   
    <%= form.submit  "登録する" %>
 <% end %>

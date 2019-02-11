@@ -10,7 +10,7 @@
     <br>
     <div>
     <strong></strong>
-     <% property.images.each do |images| %>
+     <% property.images.reverse_each do |images| %>
        <%= image_tag images.url %>
      <% end %>
     </div>
@@ -18,7 +18,6 @@
       -<%= property.postful_code_after %>
       東京都<%= property.city %>区
       <%= property.town %>
-      <%= property.adress %>丁目
       <%= property.after_adress %>
     </div>
     <br>
