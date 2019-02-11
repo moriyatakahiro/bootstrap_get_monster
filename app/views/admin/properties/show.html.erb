@@ -4,9 +4,11 @@
     <br>
     <div>
     <strong></strong>
-     <% @property.images.each do |images| %>
-       <%= image_tag images.url %>
-     <% end %>
+    <div class="slider">
+      <% @property.images.each do |images| %>
+        <%= image_tag images.url %>
+      <% end %>
+    </div>
     </div>
     <div>住所 〒<%= @property.postful_code %>-
       <%= @property.postful_code_after %>

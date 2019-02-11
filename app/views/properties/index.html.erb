@@ -8,8 +8,8 @@
   <div class="property-panel">
     <h2>物件名  <%= property.name %></h2>
     <br>
-    <div>
     <strong></strong>
+    <div class="slider">
      <% property.images.each do |images| %>
        <%= image_tag images.url %>
      <% end %>

@@ -10,8 +10,10 @@
     <br>
     <div>
     <strong></strong>
+    <div class="slider">
      <% property.images.reverse_each do |images| %>
        <%= image_tag images.url %>
+    </div>
      <% end %>
     </div>
     <div>住所 〒<%= property.postful_code %>

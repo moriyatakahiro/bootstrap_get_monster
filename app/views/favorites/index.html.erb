@@ -6,8 +6,8 @@
       
       <h2>物件名  <%= favorite.property.name %></h2>
     <br>
-    <div>
     <strong></strong>
+    <div class="slider">
      <% favorite.property.images.each do |images| %>
        <%= image_tag images.url %>
      <% end %>
