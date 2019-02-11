@@ -5,7 +5,7 @@ class Property < ApplicationRecord
   mount_uploaders :images, FloorPlanImageUploader
   def self.search(search) #self.でクラスメソッドとしている
     if search # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
-      Property.where(['name LIKE ? OR encount_monster LIKE ? OR town LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
+      Property.where(['name LIKE ? OR encount_monster LIKE ? OR town LIKE ? OR floor_plan LIKE ? OR floor_space LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"])
     else
       Property.all
     end
