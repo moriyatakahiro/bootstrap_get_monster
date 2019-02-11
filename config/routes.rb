@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   
   
   resources :properties do
-    get :city, on: :member
+    get :city, :pokestop, on: :member
     resources :contacts, only: [:new, :create, :show]
   end
 end

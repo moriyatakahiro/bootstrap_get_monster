@@ -8,6 +8,8 @@ class PropertiesController < ApplicationController
       @properties = Property.search(params[:search])
     elsif (params[:id])
       @properties = Property.search_city(params[:id])
+    elsif (params[:pokestop])
+      @properties = Property.search_pokestop(params[:pokestop])
     else
       @properties = Property.all
     end
@@ -59,8 +61,9 @@ class PropertiesController < ApplicationController
     render 'index'
   end
   
-  def latest
-    @Properties = Property.all
+  def pokestop
+    @properties = Property.search_pokestop(params[:pokestop])
+    render 'index'
   end
   
   private

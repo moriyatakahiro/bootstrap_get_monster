@@ -5,7 +5,7 @@ class Property < ApplicationRecord
   mount_uploaders :images, FloorPlanImageUploader
   def self.search(search) #self.でクラスメソッドとしている
     if search # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
-      Property.where(['name LIKE ? OR encount_monster LIKE ? OR town LIKE ? OR rent LIKE ? OR floor_plan LIKE ? OR floor_space', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"])
+      Property.where(['name LIKE ? OR encount_monster LIKE ? OR town LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"])
     else
       Property.all
     end
@@ -14,6 +14,11 @@ class Property < ApplicationRecord
   def self.search_city(city)
     area = {"shibuya" => "渋谷", "shinjyuku" => "新宿", "toshima" => "豊島", "tiyoda" => "千代田", "sinagawa" => "品川", "tyu-o" => "中央", "minato" => "港", "nerima" => "練馬", "itabashi" => "板橋", "taito" => "台東", "koto" => "江東", "katsushika" => "葛飾", "meguro" => "目黒", "o-ta" => "大田", "adati" => "足立", "nakano" => "中野", "edogawa" => "江戸川", "bunkyo" => "文京", "setagaya" => "世田谷", "suginami" => "杉並", "kita" => "北", "arakawa" => "荒川", "sumida" => "墨田"}
     Property.where(city: area[city])
+  end
+  
+  def self.search_pokestop(pokestop)
+    count = {"stop1" => 1, "stop2" => 2, "stop3" => 3, "stop4" => 4}
+    Property.where(stop_count: count[stop_count])
   end
 
     validates :name, :city, :town, :postful_code, :postful_code_after, :after_adress, :rent, :floor_plan, :floor_space, :encount_monster, :stop_count, :stop_adress, :property_age, :images, presence: true
