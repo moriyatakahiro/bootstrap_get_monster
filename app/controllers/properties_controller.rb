@@ -8,8 +8,6 @@ class PropertiesController < ApplicationController
       @properties = Property.search(params[:search])
     elsif (params[:id])
       @properties = Property.search_city(params[:id])
-    elsif (params[:pokestop])
-      @properties = Property.search_pokestop(params[:pokestop])
     else
       @properties = Property.all
     end

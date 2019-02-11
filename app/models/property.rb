@@ -16,10 +16,6 @@ class Property < ApplicationRecord
     Property.where(city: area[city])
   end
   
-  def self.search_pokestop(pokestop)
-    count = {"stop1" => 1, "stop2" => 2, "stop3" => 3, "stop4" => 4}
-    Property.where(stop_count: count[stop_count])
-  end
 
     validates :name, :city, :town, :postful_code, :postful_code_after, :after_adress, :rent, :floor_plan, :floor_space, :encount_monster, :stop_count, :stop_adress, :property_age, :images, presence: true
 
