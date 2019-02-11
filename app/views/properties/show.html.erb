@@ -6,12 +6,12 @@
   
 <h2>物件名  <%= @property.name %></h2>
     <br>
-    <div class="slider">
+    
     <strong></strong>
      <% @property.images.each do |images| %>
        <%= image_tag images.url %>
      <% end %>
-    </div>
+    
     <div>住所 〒<%= @property.postful_code %>-
       <%= @property.postful_code_after %>
       <%= @property.city %>区
