@@ -7,7 +7,7 @@ class Property < ApplicationRecord
   def self.search(search)
     if search && search != ""
       words = search.to_s.split(" ")
-      columns = ["name", "town", "encount_monster", "floor_plan", "floor_space"]
+      columns = ["name", "town", "encount_monster", "floor_plan", "floor_space", "cast(rent as text)", "cast(stop_count as text)", "cast(city as text)"]
       query = []
       result = []
  
@@ -17,9 +17,9 @@ class Property < ApplicationRecord
  
       words.each_with_index do |w, index|
         if index == 0
-          result[index] = Property.where([query.join(" OR "), "%#{w}%",  "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%"])
+          result[index] = Property.where([query.join(" OR "), "%#{w}%",  "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%"])
         else
-          result[index] = result[index-1].where([query.join(" OR "), "%#{w}%",  "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%"])
+          result[index] = result[index-1].where([query.join(" OR "), "%#{w}%",  "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%"])
         end
       end
       return result[words.length-1]
