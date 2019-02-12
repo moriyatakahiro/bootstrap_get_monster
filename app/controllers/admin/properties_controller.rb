@@ -8,7 +8,11 @@ class Admin::PropertiesController < ApplicationController
   end
   
   def new
-    @property = Property.new
+    if params[:back]
+      @property = Property.new(property_params)
+    else
+      @property = Property.new
+    end
   end
   
   def create

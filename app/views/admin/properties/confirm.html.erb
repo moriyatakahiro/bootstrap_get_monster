@@ -42,4 +42,24 @@
     
   
    <%= form.submit  "登録する" %>
+   <% end %>
+   
+   <%= form_with(model: @property, url: new_admin_property_path, local: true, method: 'get') do |form| %>
+     <%= form.hidden_field :name %>
+     <%= form.hidden_field :postful_code %>
+     <%= form.hidden_field :postful_code_after %>
+     <%= form.hidden_field :city %>
+　   <%= form.hidden_field :town %>
+　   <%= form.hidden_field :after_adress %>
+　   <%= form.hidden_field :property_age %>
+　   <%= form.hidden_field :rent %>
+　   <%= form.hidden_field :floor_space %>
+　   <%= form.hidden_field :floor_plan %>
+　   <%= form.hidden_field :encount_monster %>
+　   <%= form.hidden_field :stop_count %>
+　   <%= form.hidden_field :stop_adress %>
+   　<%= form.hidden_field :images %>
+　   <%= form.hidden_field :images_cache %>
+  <%= form.submit "もどる", name: 'back' %>
+
 <% end %>
