@@ -3,13 +3,31 @@ class Property < ApplicationRecord
   has_many :favorite_users, through: :favorites, source: :user
   belongs_to :user
   mount_uploaders :images, FloorPlanImageUploader
-  def self.search(search) #self.でクラスメソッドとしている
-    if search # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
-      Property.where(['name LIKE ? AND encount_monster LIKE ? AND town LIKE ? AND floor_plan LIKE ? AND floor_space LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"])
+  
+  def self.search(search)
+    if search && search != ""
+      words = search.to_s.split(" ")
+      columns = ["name", "town", "encount_monster", "floor_plan", "floor_space"]
+      query = []
+      result = []
+ 
+      columns.each do |column|
+        query << ["#{column} LIKE ?"]
+      end
+ 
+      words.each_with_index do |w, index|
+        if index == 0
+          result[index] = Property.where([query.join(" OR "), "%#{w}%",  "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%"])
+        else
+          result[index] = result[index-1].where([query.join(" OR "), "%#{w}%",  "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%"])
+        end
+      end
+      return result[words.length-1]
     else
       Property.all
     end
   end
+  
   
   def self.search_city(city)
     area = {"shibuya" => "渋谷", "shinjyuku" => "新宿", "toshima" => "豊島", "tiyoda" => "千代田", "sinagawa" => "品川", "tyu-o" => "中央", "minato" => "港", "nerima" => "練馬", "itabashi" => "板橋", "taito" => "台東", "koto" => "江東", "katsushika" => "葛飾", "meguro" => "目黒", "o-ta" => "大田", "adati" => "足立", "nakano" => "中野", "edogawa" => "江戸川", "bunkyo" => "文京", "setagaya" => "世田谷", "suginami" => "杉並", "kita" => "北", "arakawa" => "荒川", "sumida" => "墨田"}
@@ -47,3 +65,5 @@ class Property < ApplicationRecord
 
 
 end
+
+
