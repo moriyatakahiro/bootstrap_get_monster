@@ -1,4 +1,6 @@
+<div class="container">
 <h3>以下の内容で、送信する。</h3>
+
 
 <%= form_with(model: @property, url: admin_properties_path, local: true) do |form| %>
   <%= form.hidden_field :name %>
@@ -34,14 +36,14 @@
     <br>
     <div>築年数 <%= @property.property_age%>年</div>
     <div>家賃 <%= @property.rent%>円</div>
-    <div>広さ <%= @property.floor_space%></div>
+    <div>広さ <%= @property.floor_space%>(㎡)</div>
     <div>間取り <%= @property.floor_plan %></div>
-    <div>ポケストップの数 <%= @property.stop_count %></div>
+    <div>ポケストップの数 <%= @property.stop_count %>コ</div>
     <div>ポケストップの場所 <%= @property.stop_adress %></div>
     <div>出現するポケモン <%= @property.encount_monster %></div>
     
   
-   <%= form.submit  "登録する" %>
+   <%= form.submit  "登録する" %><br>
    <% end %>
    
    <%= form_with(model: @property, url: new_admin_property_path, local: true, method: 'get') do |form| %>
@@ -60,6 +62,8 @@
 　   <%= form.hidden_field :stop_adress %>
    　<%= form.hidden_field :images %>
 　   <%= form.hidden_field :images_cache %>
-  <%= form.submit "もどる", name: 'back' %>
+　   
+       <div><%= form.submit "もどる", name: 'back', class: 'backbtn' %></div>
 
 <% end %>
+</div>

@@ -1,7 +1,7 @@
 class Property < ApplicationRecord
   validates :postful_code, length: { is: 3 }
-  validates :postful_code, length: { is: 4 }
-  validates :property_age, length: { maximum: 3 }
+  validates :postful_code_after, length: { is: 4 }
+  validates :property_age, length: { maximum: 2 }
   has_many :favorites, dependent: :destroy
   has_many :favorite_users, through: :favorites, source: :user
   belongs_to :user
