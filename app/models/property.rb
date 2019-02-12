@@ -2,6 +2,7 @@ class Property < ApplicationRecord
   validates :postful_code, length: { is: 3 }
   validates :postful_code_after, length: { is: 4 }
   validates :property_age, length: { maximum: 2 }
+  validates :stop_count, length: { maximum: 2 }
   has_many :favorites, dependent: :destroy
   has_many :favorite_users, through: :favorites, source: :user
   belongs_to :user
@@ -10,7 +11,7 @@ class Property < ApplicationRecord
   def self.search(search)
     if search && search != ""
       words = search.to_s.split(" ")
-      columns = ["name", "town", "encount_monster", "floor_plan", "floor_space", "cast(rent as text)", "cast(stop_count as text)", "cast(city as text)"]
+      columns = ["name", "town", "encount_monster", "cast(floor_plan as text)", "floor_space", "cast(rent as text)", "cast(stop_count as text)", "cast(city as text)"]
       query = []
       result = []
  
@@ -65,7 +66,13 @@ class Property < ApplicationRecord
     葛飾:21,
     江戸川:22,
   }
-
+  
+  enum floor_plan:{
+    "2LDK": 0,
+    "3LDK": 1,
+    "4LDK": 2,
+    "2DK": 3
+  }
 
 end
 

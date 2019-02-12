@@ -46,7 +46,7 @@
   </div>
   <div class="property_floor_plan">
     <%= form.label :間取り %>
-    <%= form.text_field :floor_plan %>
+    <%= select :floor_plan,:LDK,Property.floor_plans.keys.to_a %>
   </div>
   <div class="property_encount_monster">
     <%= form.label :出現するポケモン %>
