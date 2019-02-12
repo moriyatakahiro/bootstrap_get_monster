@@ -6,8 +6,8 @@
 
 <%= form_tag properties_path, :method => 'get' do %> <%#　projects_pathはモデル名で読みかえること %>
   <p>
-    キーワードから物件を検索 <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search" , placeholder: "キーワードを入力", :name => nil %>　例 :ピカチュウ, 4LDK, 道玄坂
+    キーワードから物件を検索 <%= text_field_tag :search, params[:search], placeholder: "半角スペースで入力　例: ピカチュウ 4LDK", :size=>"60" %>
+    <%= submit_tag "Search", :name => nil %>
   </p>
 <% end %>
 
