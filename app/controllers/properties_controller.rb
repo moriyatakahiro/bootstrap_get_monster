@@ -5,13 +5,11 @@ class PropertiesController < ApplicationController
   
   
   def index
-    @search_task = Property.new
-    if (params[:search])
-      @search_task = Property.search(params[:search])
-    elsif (params[:id])
-      @properties = Property.search_city(params[:id])
-    else
-      @properties = Property.all
+    @search_property = Property.new
+    @properties = current_user.properties
+    
+    if (params[:property][:city])
+      @properties = Property.search_city(params[:property][:city])
     end
   end
     
