@@ -22,10 +22,10 @@
     〒<%= form.text_field :postful_code %>
     -<%= form.text_field :postful_code_after %>
  
-     東京都<%= form.text_field :city %>区
+     東京都(東京23区のみ)<%= form.text_field :city %>区
   
     
-    <%= form.text_field :town %>:町名
+    (町名)<%= form.text_field :town %>
  
  
     
@@ -45,8 +45,8 @@
     <%= form.text_field :floor_space %>(㎡)
   </div>
   <div class="property_floor_plan">
-    <%= form.label :間取り %>
-    <%= form.text_field :floor_plan %>
+    <%= form.label :間取り%>
+    <%= form.text_field :floor_plan %>例：4LDK
   </div>
   <div class="property_encount_monster">
     <%= form.label :出現するポケモン %>

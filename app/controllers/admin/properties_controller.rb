@@ -47,8 +47,6 @@ class Admin::PropertiesController < ApplicationController
   
   def confirm
     @property = Property.new(property_params)
-    @property.city = params[:city][:name]
-    @property.floor_plan = params[:floor_plan][:LDK]
     @property.user_id = current_user.id
     render :new if @property.invalid?
   end
