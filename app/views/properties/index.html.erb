@@ -3,39 +3,7 @@
 <h1>物件一覧</h1>
 
 
-<% if params[:search]%>
-<% @search_task.reverse_each do |property| %>
-  <div class="property-panel">
-    <h2>物件名  <%= property.name %></h2>
-    <br>
-    <strong></strong>
-    <div class="slider">
-     <% property.images.each do |images| %>
-       <%= image_tag images.url %>
-     <% end %>
-    </div>
-    <div>住所 〒<%= property.postful_code %>
-      -<%= property.postful_code_after %>
-      東京都<%= property.city %>区
-      <%= property.town %>
-      <%= property.after_adress %>
-    </div>
-    <br>
-    <div>築年数 <%= property.property_age%>年</div>
-    <div>家賃 <%= property.rent%>円</div>
-    <div>広さ <%= property.floor_space%></div>
-    <div>間取り <%= property.floor_plan %></div>
-    <div>ポケストップの数 <%= property.stop_count %>コ</div>
-    <div>ポケストップの場所 <%= property.stop_adress %></div>
-    <div>出現するポケモン <%= property.encount_monster %></div>
-    
-    <div class="property-links">
-      <%= link_to '詳細を確認する', property_path(property.id) %>
-    </div>
-  <% end %>
-  <% end %>
-
-<% if params[:id]%>
+<%# if params[:search]%>
 <% @properties.reverse_each do |property| %>
   <div class="property-panel">
     <h2>物件名  <%= property.name %></h2>
@@ -60,11 +28,43 @@
     <div>ポケストップの数 <%= property.stop_count %>コ</div>
     <div>ポケストップの場所 <%= property.stop_adress %></div>
     <div>出現するポケモン <%= property.encount_monster %></div>
-    
+
     <div class="property-links">
       <%= link_to '詳細を確認する', property_path(property.id) %>
     </div>
+  <%# end %>
   <% end %>
+
+<%# if params[:id]%>
+<% @properties.reverse_each do |property| %>
+  <div class="property-panel">
+    <h2>物件名  <%= property.name %></h2>
+    <br>
+    <strong></strong>
+    <div class="slider">
+     <% property.images.each do |images| %>
+       <%= image_tag images.url %>
+     <% end %>
+    </div>
+    <div>住所 〒<%= property.postful_code %>
+      -<%= property.postful_code_after %>
+      東京都<%= property.city %>区
+      <%= property.town %>
+      <%= property.after_adress %>
+    </div>
+    <br>
+    <div>築年数 <%= property.property_age%>年</div>
+    <div>家賃 <%= property.rent%>円</div>
+    <div>広さ <%= property.floor_space%></div>
+    <div>間取り <%= property.floor_plan %></div>
+    <div>ポケストップの数 <%= property.stop_count %>コ</div>
+    <div>ポケストップの場所 <%= property.stop_adress %></div>
+    <div>出現するポケモン <%= property.encount_monster %></div>
+
+    <div class="property-links">
+      <%= link_to '詳細を確認する', property_path(property.id) %>
+    </div>
+  <%# end %>
 <% end %>
 
 

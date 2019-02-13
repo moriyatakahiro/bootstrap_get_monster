@@ -4,7 +4,7 @@
 <p><%= @user.name %>さんのページ</p>
 
 
-<%= form_with(model: @search_property, method: :get, url: properties_path, local: true) do |form| %>
+<%= form_with(model: Property.new, method: :get, url: properties_path, local: true) do |form| %>
   <%= form.label :２３区, class: 'col-1 col-form-label'%>
   <%= form.select :city, Property.cities.keys, include_blank: true, selected: '' %><br>
   <%= form.label :間取り, class: 'col-1 col-form-label'%>
@@ -12,7 +12,7 @@
   <%= form.submit "Search" %>
 <% end %>
 
-<%= form_tag properties_path, :method => 'get' do %> 
+<%= form_tag properties_path, :method => 'get' do %>
   <p>
      キーワードから物件を検索 <%= text_field_tag :search, params[:search], placeholder: "半角スペースで入力　例: ピカチュウ 4LDK", :size=>"60" %>
   </p>
@@ -45,4 +45,3 @@
 　　<%= link_to "荒川区", city_property_path("arakawa") %>
 　　<%= link_to "墨田区", city_property_path("sumida") %>
   </div><br>
-  

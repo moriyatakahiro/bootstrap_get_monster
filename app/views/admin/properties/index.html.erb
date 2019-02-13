@@ -5,7 +5,7 @@
 <%= link_to '新しく物件を投稿する', new_admin_property_path %>
 
 <% if params[:search]%>
-<% @search_task.reverse_each do |property| %>
+<% @properties.reverse_each do |property| %>
   
     <h2>物件名  <%= property.name %></h2>
     <br>
