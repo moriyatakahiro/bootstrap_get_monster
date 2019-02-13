@@ -7,6 +7,7 @@ class Property < ApplicationRecord
   has_many :favorite_users, through: :favorites, source: :user
   belongs_to :user
   mount_uploaders :images, FloorPlanImageUploader
+  scope :status_search, -> (status) { where(status: status) }
   
   def self.search(search)
     if search && search != ""
@@ -18,6 +19,8 @@ class Property < ApplicationRecord
       columns.each do |column|
         query << ["#{column} LIKE ?"]
       end
+      
+      scope :status_search, -> (status) { where(status: status) }
  
       words.each_with_index do |w, index|
         if index == 0

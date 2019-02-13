@@ -3,20 +3,17 @@ class PropertiesController < ApplicationController
   before_action :login, only: [ :new, :show, :edit, :update, :destroy]
   before_action :ensure_correct_user, only: [:edit]
   
+  
   def index
-    def index
     @search_task = Property.new
-    @tasks = current_user.tasks.recent.page(params[:page])
-
-    if params[:task].present?
-      @tasks = current_user.tasks.title_search(params[:task][:name]).page(params[:page])
-      if params[:task][:status].present?
-        @tasks = current_user.tasks.status_search(params[:task][:status]).page(params[:page])
-      end
-      if params[:task][:label_id].present?
-        @tasks = current_user.tasks.label_search(params[:task][:label_id]).page(params[:page])
-      end
+    if (params[:search])
+      @search_task = Property.search(params[:search])
+    elsif (params[:id])
+      @properties = Property.search_city(params[:id])
+    else
+      @properties = Property.all
     end
+  end
     
     
   
