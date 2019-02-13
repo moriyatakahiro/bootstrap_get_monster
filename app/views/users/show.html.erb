@@ -4,11 +4,18 @@
 <p><%= @user.name %>さんのページ</p>
 
 
-<%= form_tag properties_path, :method => 'get' do %> <%#　projects_pathはモデル名で読みかえること %>
+<%= form_with(model: @search_task, method: :get, url: properties_path, local: true) do |form| %>
+
+<%= form_tag properties_path, :method => 'get' do %> 
   <p>
     キーワードから物件を検索 <%= text_field_tag :search, params[:search], placeholder: "半角スペースで入力　例: ピカチュウ 4LDK", :size=>"60" %>
-    <%= submit_tag "Search", :name => nil %>
   </p>
+    <%= form.label :city, class: 'col-1 col-form-label'%>
+    <%= form.select :city, Property.cities.keys, include_blank: true, selected: '' %>
+    <%= form.label :floor_plan, class: 'col-1 col-form-label'%>
+    <%= form.select :floor_plan, Property.floor_plans.keys, include_blank: true, selected: '' %>
+    <%= submit_tag "Search", :name => nil %>
+<% end %>
 <% end %>
 
 <p>エリアから絞り込む</p>
