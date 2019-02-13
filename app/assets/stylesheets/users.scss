@@ -57,6 +57,15 @@ ul {
 }
 
 .slider img {
-    width: 50px;
+    max-width: 50%;
     height: 320px;
 } 
+
+.slick-initialized .slick-slide {
+    // max-width: 50%;
+    // height: 100px;
+}
+
+.slick-slide.slick-current.slick-active{
+    height: 600px;
+}

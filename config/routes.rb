@@ -1,12 +1,7 @@
-class LoggedInConstraint < Struct.new(:value)
-  def matches?(request)
-    request.session.key?('current_user_id') == value
-  end
-end
 
 Rails.application.routes.draw do
-   root 'sessions#new', as: :user_root, constraints: LoggedInConstraint.new(false)
-   root 'users#new', constraints: LoggedInConstraint.new(true)
+   
+   root 'users#new'
   
   
   resources :favorites, only: [:index, :create, :destroy]

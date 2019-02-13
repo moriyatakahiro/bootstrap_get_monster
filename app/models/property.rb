@@ -3,6 +3,8 @@ class Property < ApplicationRecord
   validates :postful_code_after, length: { is: 4 }
   validates :property_age, length: { maximum: 2 }
   validates :stop_count, length: { maximum: 2 }
+  validates :city, length: { maximum: 3 }
+  validates :city, length: { maximum: 5 }
   has_many :favorites, dependent: :destroy
   has_many :favorite_users, through: :favorites, source: :user
   belongs_to :user
@@ -12,7 +14,7 @@ class Property < ApplicationRecord
   def self.search(search)
     if search && search != ""
       words = search.to_s.split(" ")
-      columns = ["name", "town", "encount_monster", "cast(floor_plan as text)", "floor_space", "cast(rent as text)", "cast(stop_count as text)", "cast(city as text)"]
+      columns = ["name", "town", "encount_monster", "floor_plan", "floor_space", "cast(rent as text)", "cast(stop_count as text)", "city"]
       query = []
       result = []
 
@@ -39,45 +41,6 @@ class Property < ApplicationRecord
     Property.where(city: area[city])
   end
 
-  def self.search_area(city)
-    self.where(city: city)
-  end
-
-  # scope :search_area, -> (city) { where(city: city) }
-
   validates :name, :city, :town, :postful_code, :postful_code_after, :after_adress, :rent, :floor_plan, :floor_space, :encount_monster, :stop_count, :stop_adress, :property_age, :images, presence: true
-
-  enum city:{
-    千代田: 0,
-    中央: 1,
-    港: 2,
-    新宿: 3,
-    文京: 4,
-    台東: 5,
-    墨田: 6,
-    江東: 7,
-    品川: 8,
-    目黒: 9,
-    太田: 10,
-    世田谷: 11,
-    渋谷: 12,
-    中野: 13,
-    杉並: 14,
-    豊島: 15,
-    北: 16,
-    荒川: 17,
-    板橋: 18,
-    練馬: 19,
-    足立: 20,
-    葛飾: 21,
-    江戸川: 22,
-  }
-
-  enum floor_plan:{
-    "2LDK": 0,
-    "3LDK": 1,
-    "4LDK": 2,
-    "2DK": 3
-  }
 
 end

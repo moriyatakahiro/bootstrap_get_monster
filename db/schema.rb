@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190212154519) do
+ActiveRecord::Schema.define(version: 20190213153617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,15 +44,15 @@ ActiveRecord::Schema.define(version: 20190212154519) do
     t.string "after_adress"
     t.integer "property_age"
     t.integer "rent"
-    t.string "floor_space"
     t.string "encount_monster"
     t.integer "stop_count"
     t.string "stop_adress"
     t.integer "postful_code_after"
     t.bigint "user_id"
-    t.integer "city", limit: 2, default: 0, null: false
     t.json "images"
     t.integer "floor_plan", limit: 2, default: 0, null: false
+    t.string "city"
+    t.string "floor_space"
     t.index ["user_id"], name: "index_properties_on_user_id"
   end
 

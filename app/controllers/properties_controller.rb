@@ -5,20 +5,16 @@ class PropertiesController < ApplicationController
 
 
   def index
-    @properties = Property.all
     if params[:search]
       @properties = Property.search(params[:search])
-    else params[:id]
+    elsif params[:id]
       @properties = Property.search_city(params[:id])
+    else
+      @properties = Property.all
     end
-    
-   if params[:property].present?
-     if params[:property][:city]
-       @properties = Property.search_area(params[:property][:city])
-     end
-   end
   end
-
+    
+    
   def new
     @property = Property.new
   end
