@@ -34,6 +34,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'redis-rails'
 gem 'jquery-rails'
+gem "squasher"
 
 
 # Use Capistrano for deployment

@@ -43,7 +43,7 @@
     <div>出現するポケモン <%= @property.encount_monster %></div>
     
   
-   <%= form.submit  "登録する" %><br>
+   <%= form.submit  "登録する", class: 'btn btn-primary' %><br>
    <% end %>
    
    <%= form_with(model: @property, url: new_admin_property_path, local: true, method: 'get') do |form| %>
@@ -63,7 +63,7 @@
    　<%= form.hidden_field :images %>
 　   <%= form.hidden_field :images_cache %>
 　   
-       <div><%= form.submit "もどる", name: 'back', class: 'backbtn' %></div>
+       <div><%= form.submit "もどる", name: 'back', class: 'btn btn-danger' %></div>
 
 <% end %>
 </div>

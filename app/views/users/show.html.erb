@@ -8,7 +8,7 @@
   <p>
      キーワードから物件を検索 <%= text_field_tag :search, params[:search], placeholder: "半角スペースで入力　例: ピカチュウ 4LDK", :size=>"60" %>
   </p>
-    <%= submit_tag "Search", :name => nil %>
+    <%= submit_tag "Search", :name => nil, class: 'btn btn-primary' %>
 <% end %>
 
 <p>エリアから絞り込む</p>

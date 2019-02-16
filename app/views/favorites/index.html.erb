@@ -29,7 +29,7 @@
     
   
     <div>
-        <%= link_to 'いいね！解除する', favorite_path(id: favorite.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }, class: 'btn btn-danger' %>
+        <%= link_to 'お気に入り解除する', favorite_path(id: favorite.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }, class: 'btn btn-danger' %>
         <%= link_to '詳細を確認する', property_path(favorite.property.id) %>
     </div>    
   <% end %>
