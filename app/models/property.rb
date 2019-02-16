@@ -25,9 +25,12 @@ class Property < ApplicationRecord
   if search && money
       words.each_with_index do |w, index|
         if index == 0
-          result[index] = Property.where(['query.join(" OR ") AND rent <= ?', "%#{w}%",  "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", )
+          puts "あああ#{query.join(" OR ")} AND rent <= ?"
+          aaa = "#{query.join(" OR ")} OR rent <= ?"
+          #result[index] = Property.where(['query.join(" OR ") AND rent <= ?', "%#{w}%",  "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "#{money}"])
+          result[index] = Property.where(["#{aaa}", "%#{w}%",  "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "#{money}"])
         else
-          result[index] = result[index-1].where(['query.join(" OR ") AND rent <= ?', "%#{w}%",  "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%",])
+          result[index] = result[index-1].where(['query.join(" OR ") AND rent <= ?', "%#{w}%",  "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "#{money}"])
         end
       end
       return result[words.length-1]
