@@ -5,8 +5,9 @@ class PropertiesController < ApplicationController
 
 
   def index
-    if params[:search]
-      @properties = Property.search(params[:search])
+    if params[:search] || params[:money]
+      #binding.pry
+      @properties = Property.search(params[:search], params[:money])
     elsif params[:id]
       @properties = Property.search_city(params[:id])
     else
@@ -58,11 +59,6 @@ class PropertiesController < ApplicationController
 
   def city
     @properties = Property.search_city(params[:id])
-    render 'index'
-  end
-
-  def pokestop
-    @properties = Property.search_pokestop(params[:pokestop])
     render 'index'
   end
 
