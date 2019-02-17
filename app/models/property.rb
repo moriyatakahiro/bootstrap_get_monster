@@ -11,7 +11,7 @@ class Property < ApplicationRecord
   mount_uploaders :images, FloorPlanImageUploader
   scope :status_search, -> (status) { where(status: status) }
 
-  def self.search(search, money)
+def self.search(search, money)
     if search && search != ""
       words = search.to_s.split(" ")
       columns = ["name", "town", "encount_monster", "city",  "cast(stop_count as text)", "floor_plan", "cast(property_age as text)"]
@@ -22,23 +22,43 @@ class Property < ApplicationRecord
         query << ["#{column} LIKE ?"]     
       end
       
-  if search && money
+    if search && money
       words.each_with_index do |w, index|
         if index == 0
           puts "あああ#{query.join(" OR ")} AND rent <= ?"
-          aaa = "#{query.join(" OR ")} OR rent <= ?"
+          aaa = "#{query.join(" OR ")} AND rent <= ?"
           #result[index] = Property.where(['query.join(" OR ") AND rent <= ?', "%#{w}%",  "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "#{money}"])
           result[index] = Property.where(["#{aaa}", "%#{w}%",  "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "#{money}"])
         else
-          result[index] = result[index-1].where(['query.join(" OR ") AND rent <= ?', "%#{w}%",  "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "#{money}"])
+          result[index] = result[index-1].where(["#{aaa}", "%#{w}%",  "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "#{money}"])
         end
       end
       return result[words.length-1]
     else
       Property.all
     end
-  end
+    end
 end
+
+
+
+  
+    #elsif search
+      #words.each_with_index do |w, index|
+        #if index == 0
+          #result[index] = Property.where([query.join(" OR "), "%#{w}%",  "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%"])
+        #else
+          #result[index] = result[index-1].where([query.join(" OR "), "%#{w}%",  "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "#{w}%", "%#{w}%", "%#{w}%"])
+        #end
+      #end
+      #return result[words.length-1]
+    #else
+      #Property.all
+    #end
+#end
+
+
+ 
 
 
   def self.search_city(city)
