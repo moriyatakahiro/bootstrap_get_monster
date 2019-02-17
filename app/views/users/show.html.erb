@@ -7,9 +7,10 @@
 <%= form_tag properties_path, :method => 'get' do %>
   <p>
      キーワードから物件を検索 <%= text_field_tag :search, params[:search], placeholder: "半角スペースで入力　例: ピカチュウ 4LDK", :size=>"60" %>
-     家賃の上限を設定する<%= text_field_tag :money, params[:money] %>
+     家賃の上限を設定する<%= number_field_tag :rent, params[:rent] %>
   </p>
     <%= submit_tag "Search", :name => nil, class: 'btn btn-primary' %>
+    
 <% end %>
 
 <p>エリアから絞り込む</p>

@@ -9,27 +9,32 @@ class Property < ApplicationRecord
   has_many :favorite_users, through: :favorites, source: :user
   belongs_to :user
   mount_uploaders :images, FloorPlanImageUploader
-  scope :status_search, -> (status) { where(status: status) }
-
-def self.search(search, money)
-    if money && money !="" && search && search != ""
+  #scope :status_search, -> (status) { where(status: status) }
+  
+def self.search(search, rent)
+    rent = rent.to_i
+    if rent && rent !="" && search && search != ""
+      binding.pry
       words = search.to_s.split(" ")
       columns = ["name", "town", "encount_monster", "city",  "cast(stop_count as text)", "floor_plan", "cast(property_age as text)"]
       query = []
       result = []
-      money_i = money.to_i
+      
 
       columns.each do |column|
         query << ["#{column} LIKE ?"]     
       end
-      
+
+    
       words.each_with_index do |w, index|
         if index == 0
-          aaa = "#{query.join(" OR ")} AND rent <= ?"
-          result[index] = Property.where(["#{aaa}", "%#{w}%",  "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "#{money_i}"])
           binding.pry
+          puts "あああ#{query.join(" OR ")} AND rent <= ?"
+          aaa = "#{query.join(" OR ")} AND rent <= ?"
+          result[index] = Property.where(["#{aaa}", "%#{w}%",  "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "#{rent}"])
+          #binding.pry
         else
-          result[index] = result[index-1].where(["#{aaa}", "%#{w}%",  "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "#{money_i}"])
+          result[index] = result[index-1].where(["#{aaa}", "%#{w}%",  "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "#{rent}"])
         end
       end
       return result[words.length-1]
@@ -37,23 +42,6 @@ def self.search(search, money)
       Property.all
     end
 end
-
-
-
-  
-    #elsif search
-      #words.each_with_index do |w, index|
-        #if index == 0
-          #result[index] = Property.where([query.join(" OR "), "%#{w}%",  "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%"])
-        #else
-          #result[index] = result[index-1].where([query.join(" OR "), "%#{w}%",  "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "#{w}%", "%#{w}%", "%#{w}%"])
-        #end
-      #end
-      #return result[words.length-1]
-    #else
-      #Property.all
-    #end
-#end
 
 
  
