@@ -4,7 +4,13 @@ class Admin::PropertiesController < ApplicationController
   before_action :ensure_correct_user, only: [:edit]
   
   def index
-    @properties = Property.search(params[:search])
+    if params[:q]
+      @q = Property.ransack(params[:q])
+      # @properties = @q.result(distinct: true)
+      @properties = @q.result
+    else
+      @properties = Property.all
+    end
   end
   
   def new

@@ -2,9 +2,38 @@
 
 <%= link_to '新しく物件を投稿する', new_admin_property_path %>
 
-<%= form_tag admin_properties_path, :method => 'get' do %> <%#　projects_pathはモデル名で読みかえること %>
-  <p>
-    物件検索 <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
+<%= search_form_for @q, url: admin_properties_path, html: { method: :get } do |f| %>
+
+  <%= f.label :name %><br>
+  <%= f.search_field :name_cont, placeholder: "例：千代田区役所" %><br>
+  
+  <%= f.label :city %><br>
+  <%= f.search_field :city_cont, placeholder: "例：渋谷" %><br>
+  
+  <%= f.label :town %><br>
+  <%= f.search_field :town_cont, placeholder: "例：六本木" %><br>
+  
+  <%= f.label :floor_plan %><br>
+  <%= f.search_field :floor_plan_cont, placeholder: "例：4LDK" %><br>
+  
+  <%= f.label :floor_space %><br>
+  <%= f.search_field :floor_space_cont, placeholder: "例：120" %><br>
+  
+  <%= f.label :encount_monster %><br>
+  <%= f.search_field :encount_monster_cont, placeholder: "例：ピカチュウ" %><br>
+  
+  <%= f.label :stop_count_gteq, "ポケストップの数" %><br>
+  <%= f.search_field :stop_count_gteq %>コ
+  
+  <%= f.label :stop_count_lteq, " ~ " %>
+  <%= f.search_field :stop_count_lteq %>コ<br>
+  
+  <%= f.label :rent_gteq, "家賃" %><br>
+  <%= f.search_field :rent_gteq %>円
+
+  
+  <%= f.label :rent_lteq, " ~ " %>
+  <%= f.search_field :rent_lteq %>円<br>
+  
+  <%= f.submit %>
 <% end %>

@@ -9,7 +9,6 @@ class PropertiesController < ApplicationController
       @q = Property.ransack(params[:q])
       # @properties = @q.result(distinct: true)
       @properties = @q.result
-      binding.pry
     elsif params[:id]
       @properties = Property.search_city(params[:id])
     else

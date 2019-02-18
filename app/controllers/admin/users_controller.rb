@@ -18,6 +18,8 @@ class Admin::UsersController < ApplicationController
   end
 
   def show
+    @q = Property.ransack(params[:q])
+    @properties = @q.result(distinct: true)
   end
 
   def index
