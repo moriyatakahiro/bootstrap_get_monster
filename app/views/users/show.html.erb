@@ -4,13 +4,49 @@
 <p><%= @user.name %>さんのページ</p>
 
 
-<%= form_tag properties_path, :method => 'get' do %>
-  <p>
-     キーワードから物件を検索 <%= text_field_tag :search, params[:search], placeholder: "半角スペースで入力　例: ピカチュウ 4LDK", :size=>"60" %>
-     家賃の上限を設定する<%= number_field_tag :rent, params[:rent] %>
-  </p>
-    <%= submit_tag "Search", :name => nil, class: 'btn btn-primary' %>
+<%#= form_tag properties_path, :method => 'get' do %>
+  
+      <%#= text_field_tag :search, params[:search], placeholder: "半角スペースで入力　例: ピカチュウ 4LDK", :size=>"60" %>
+      <%#= number_field_tag :rent, params[:rent] %>
+  
+    <%#= submit_tag "Search", :name => nil, class: 'btn btn-primary' %>
     
+<%# end %>
+
+<%= search_form_for @q, url: properties_path, html: { method: :get } do |f| %>
+
+  <%= f.label :name_cont %><br>
+  <%= f.search_field :name_cont %><br>
+  
+  <%= f.label :city_cont %><br>
+  <%= f.search_field :city_cont %><br>
+  
+  <%= f.label :town_cont %><br>
+  <%= f.search_field :town_cont %><br>
+  
+  <%= f.label :floor_plan_cont %><br>
+  <%= f.search_field :floor_plan_cont %><br>
+  
+  <%= f.label :floor_space_cont %><br>
+  <%= f.search_field :floor_space_cont %><br>
+  
+  <%= f.label :encount_monster_cont %><br>
+  <%= f.search_field :encount_monster_cont %><br>
+  
+  <%= f.label :stop_count_gteq, "ポケストップの数" %><br>
+  <%= f.search_field :stop_count_gteq %>
+  
+  <%= f.label :stop_count_lteq, " ~ " %>
+  <%= f.search_field :stop_count_lteq %><br>
+  
+  <%= f.label :rent_gteq, "価格" %><br>
+  <%= f.search_field :rent_gteq %>
+
+  
+  <%= f.label :rent_lteq, " ~ " %>
+  <%= f.search_field :rent_lteq %><br>
+  
+  <%= f.submit %>
 <% end %>
 
 <p>エリアから絞り込む</p>

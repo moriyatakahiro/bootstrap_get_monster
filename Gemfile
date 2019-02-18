@@ -35,6 +35,7 @@ gem 'mini_magick'
 gem 'redis-rails'
 gem 'jquery-rails'
 gem "squasher"
+gem 'ransack'
 
 
 # Use Capistrano for deployment

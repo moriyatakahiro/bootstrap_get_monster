@@ -19,6 +19,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @q = Property.ransack(params[:q])
+    @properties = @q.result(distinct: true)
   end
 
   def index
@@ -36,7 +38,7 @@ private
   
   def user_params
     params.require(:user).permit(:name, :email, :password,
-                                 :password_confirmation, :age, :sex)
+                                 :password_confirmation, :age, :sex, :q)
   end
   
   def set_user

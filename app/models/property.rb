@@ -11,41 +11,6 @@ class Property < ApplicationRecord
   mount_uploaders :images, FloorPlanImageUploader
   #scope :status_search, -> (status) { where(status: status) }
   
-def self.search(search, rent)
-    rent = rent.to_i
-    if rent && rent !="" && search && search != ""
-      binding.pry
-      words = search.to_s.split(" ")
-      columns = ["name", "town", "encount_monster", "city",  "cast(stop_count as text)", "floor_plan", "cast(property_age as text)"]
-      query = []
-      result = []
-      
-
-      columns.each do |column|
-        query << ["#{column} LIKE ?"]     
-      end
-
-    
-      words.each_with_index do |w, index|
-        if index == 0
-          binding.pry
-          puts "あああ#{query.join(" OR ")} AND rent <= ?"
-          aaa = "#{query.join(" OR ")} AND rent <= ?"
-          result[index] = Property.where(["#{aaa}", "%#{w}%",  "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "#{rent}"])
-          #binding.pry
-        else
-          result[index] = result[index-1].where(["#{aaa}", "%#{w}%",  "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "%#{w}%", "#{rent}"])
-        end
-      end
-      return result[words.length-1]
-    else
-      Property.all
-    end
-end
-
-
- 
-
 
   def self.search_city(city)
     area = {"shibuya" => "渋谷", "shinjyuku" => "新宿", "toshima" => "豊島", "tiyoda" => "千代田", "sinagawa" => "品川", "tyu-o" => "中央", "minato" => "港", "nerima" => "練馬", "itabashi" => "板橋", "taito" => "台東", "koto" => "江東", "katsushika" => "葛飾", "meguro" => "目黒", "o-ta" => "大田", "adati" => "足立", "nakano" => "中野", "edogawa" => "江戸川", "bunkyo" => "文京", "setagaya" => "世田谷", "suginami" => "杉並", "kita" => "北", "arakawa" => "荒川", "sumida" => "墨田"}
