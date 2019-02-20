@@ -19,13 +19,13 @@
   <%= f.search_field :name_cont, placeholder: "例：千代田区役所" %><br>
   
   <%= f.label :city %><br>
-  <%= f.search_field :city_cont, placeholder: "例：渋谷" %><br>
+  <%= f.select :city_cont, Property.cities.keys.map {|k| [k, k]} %><br>
   
   <%= f.label :town %><br>
   <%= f.search_field :town_cont, placeholder: "例：六本木" %><br>
   
   <%= f.label :floor_plan %><br>
-  <%= f.search_field :floor_plan_cont, placeholder: "例：4LDK" %><br>
+  <%= f.select :floor_plan_cont, Property.floor_plans.keys.map {|k| [k, k]} %><br>
   
   <%= f.label :floor_space %><br>
   <%= f.search_field :floor_space_cont, placeholder: "例：120" %><br>

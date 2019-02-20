@@ -7,7 +7,6 @@ class PropertiesController < ApplicationController
   def index
     if params[:q]
       @q = Property.ransack(params[:q])
-      # @properties = @q.result(distinct: true)
       @properties = @q.result
     elsif params[:id]
       @properties = Property.search_city(params[:id])
@@ -71,6 +70,12 @@ class PropertiesController < ApplicationController
 
   def set_property
     @property = Property.find(params[:id])
+  end
+  
+  def search_params
+    params[:q] || {
+      status_in:   Property.cities.values
+    }
   end
 
   def login

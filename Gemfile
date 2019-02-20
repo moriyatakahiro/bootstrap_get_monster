@@ -36,6 +36,7 @@ gem 'redis-rails'
 gem 'jquery-rails'
 gem "squasher"
 gem 'ransack'
+gem 'enum_help'
 
 
 # Use Capistrano for deployment
