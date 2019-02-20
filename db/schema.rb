@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190216055550) do
+ActiveRecord::Schema.define(version: 20190219151855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "contacts", force: :cascade do |t|
+  create_table "contacts", id: :serial, force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.text "content"
@@ -23,21 +23,21 @@ ActiveRecord::Schema.define(version: 20190216055550) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "encounts", force: :cascade do |t|
+  create_table "encounts", id: :serial, force: :cascade do |t|
     t.integer "property_id"
     t.integer "report_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "favorites", force: :cascade do |t|
+  create_table "favorites", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.integer "property_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "properties", force: :cascade do |t|
+  create_table "properties", id: :serial, force: :cascade do |t|
     t.string "name"
     t.integer "postful_code"
     t.string "town"
@@ -49,14 +49,14 @@ ActiveRecord::Schema.define(version: 20190216055550) do
     t.integer "postful_code_after"
     t.bigint "user_id"
     t.json "images"
-    t.string "city"
     t.string "floor_space"
-    t.string "floor_plan"
     t.integer "rent"
+    t.integer "city", limit: 2, default: 0, null: false
+    t.integer "floor_plan", limit: 2, default: 0, null: false
     t.index ["user_id"], name: "index_properties_on_user_id"
   end
 
-  create_table "reports", force: :cascade do |t|
+  create_table "reports", id: :serial, force: :cascade do |t|
     t.string "title"
     t.string "content"
     t.datetime "created_at", null: false
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20190216055550) do
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :serial, force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "password_digest"

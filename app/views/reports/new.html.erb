@@ -15,28 +15,25 @@
 
 
 <%= form_with(model: @report, local: true) do |form| %>
+  
   <div class="report_title">
     <%= form.label :捕まえたポケモン %><br>
     <%= form.text_field :title %>
+  </div><br>
+  <div class="report_city">
+    東京都<%= select :city,:name,Property.cities.keys.to_a %>区
+      <%= form.text_field :town %>町
+      <%= form.text_field :adress %>丁目
   </div>
   <div class="report_content">
     <%= form.label :本文 %><br>
-    <%= form.text_field :content %>
+    <%= form.text_field :content, :size=>"100" %>
   </div><br>
-  <div class="report_city">
-    
-    東京都<%= select :city,:name,Report.cities.keys.to_a %>区
   
-    
-    <%= form.text_field :town %>町
-  
-    
-    <%= form.text_field :adress %>丁目
-  </div><br>
   <div class="field">
     <%= form.label :ポケモンの画像 %>
     <%= form.file_field :image, class: 'file_field' %>
 </div>
-  <%= form.submit "投稿する", class: 'btn btn-primary'%>
+  <br><%= form.submit "投稿する", class: 'btn btn-primary'%>
 <% end %>
 </div>

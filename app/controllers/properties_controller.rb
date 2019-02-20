@@ -66,9 +66,7 @@ class PropertiesController < ApplicationController
   private
 
   def property_params
-    # params.require(:property).permit(:name, :city, :town, :postful_code, :postful_code_after, :after_adress, :rent, :floor_plan, :floor_space, :encount_monster, :stop_count, :stop_adress, :property_age, :image, :q, :name_cont, :city_cont, :town_cont, :rent_gteq, :rent_lteq, :floor_plan_cont, :floor_space_cont, :encount_monster_cont, :stop_count_gteq, :stop_count_lteq,)
-    @kensaku = params.require(:q).permit(:name_cont)
-    binding.pry
+     params.require(:property).permit(:name, :city, :town, :postful_code, :postful_code_after, :after_adress, :rent, :floor_plan, :floor_space, :encount_monster, :stop_count, :stop_adress, :property_age, :image, :q, :name_cont, :city_cont, :town_cont, :rent_gteq, :rent_lteq, :floor_plan_cont, :floor_space_cont, :encount_monster_cont, :stop_count_gteq, :stop_count_lteq,)
   end
 
   def set_property

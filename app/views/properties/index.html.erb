@@ -2,8 +2,9 @@
 
 <h1>物件一覧</h1>
 
+
 <% @properties.reverse_each do |property| %>
-  <div class="property-panel">
+  <div class="thumbnail">
     <h2>物件名  <%= property.name %></h2>
     <br>
     <strong></strong>
@@ -26,13 +27,14 @@
     <div>ポケストップの数 <%= property.stop_count %>コ</div>
     <div>ポケストップの場所 <%= property.stop_adress %></div>
     <div>出現するポケモン <%= property.encount_monster %></div>
+    
+    <%= link_to '詳細を確認する', property_path(property.id) %>
+  </div>  
+<% end %>
 
-    <div class="property-links">
-      <%= link_to '詳細を確認する', property_path(property.id) %>
-    </div>
-  <%# end %>
-  <% end %>
 
+    
+   
 
 
 

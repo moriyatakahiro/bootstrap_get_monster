@@ -23,6 +23,9 @@ class Admin::PropertiesController < ApplicationController
   
   def create
     @property = Property.new(property_params)
+    @report.city = params[:city][:name]
+    @report.floor_plan = params[:floor_plan][:name]
+    binding.pry
     @property.user_id = current_user.id
     if @property.save
       redirect_to admin_properties_path, notice: "物件を投稿しました！"
@@ -53,6 +56,8 @@ class Admin::PropertiesController < ApplicationController
   
   def confirm
     @property = Property.new(property_params)
+    @property.floor_plan = params[:floor_plan][:name]
+    @property.city = params[:city][:name]
     @property.user_id = current_user.id
     render :new if @property.invalid?
   end

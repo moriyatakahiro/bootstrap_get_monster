@@ -1,17 +1,17 @@
 <div class="container">
+  
   <h1>お気に入り一覧</h1>
   
-  <div class="row">
-    <% @favorites.reverse_each do |favorite| %>
-      
+<% @favorites.reverse_each do |favorite| %>
+  <div class="thumbnail">
       <h2>物件名  <%= favorite.property.name %></h2>
     <br>
     <strong></strong>
-    
+    <div>
      <% favorite.property.images.each do |images| %>
        <%= image_tag images.url %>
      <% end %>
-    
+    </div>
     <div>住所 〒<%= favorite.property.postful_code %>
       -<%= favorite.property.postful_code_after %>
       東京都<%= favorite.property.city %>区
@@ -27,10 +27,8 @@
     <div>ポケストップの場所 <%= favorite.property.stop_adress %></div>
     <div>出現するポケモン <%= favorite.property.encount_monster %></div>
     
-  
-    <div>
-        <%= link_to 'お気に入り解除する', favorite_path(id: favorite.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }, class: 'btn btn-danger' %>
-        <%= link_to '詳細を確認する', property_path(favorite.property.id) %>
-    </div>    
-  <% end %>
+    <%= link_to 'お気に入り解除する', favorite_path(id: favorite.id), method: :delete, class: 'btn btn-danger' %>
+    <%= link_to '詳細を確認する', property_path(favorite.property.id) %>
+ </div>
+<% end %>
 </div>

@@ -12,24 +12,26 @@
       </ul>
     </div>
   <% end %>
+  
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :名前 %><br>
     <%= form.text_field :name, id: :contact_name %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :メールアドレス %><br>
     <%= form.text_field :email, id: :contact_email %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :お問い合わせ内容 %><br>
-    <%= form.text_area :content, id: :contact_content %>
+    <%= form.text_area :content, class="form-control" id: :contact_content %>
   </div>
 
   <div class="actions">
     <%= form.submit "送信する", class: 'btn btn-primary' %>
   </div>
 <% end %>
+
 </div>
