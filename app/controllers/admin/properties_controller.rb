@@ -23,9 +23,6 @@ class Admin::PropertiesController < ApplicationController
   
   def create
     @property = Property.new(property_params)
-    @report.city = params[:city][:name]
-    @report.floor_plan = params[:floor_plan][:name]
-    binding.pry
     @property.user_id = current_user.id
     if @property.save
       redirect_to admin_properties_path, notice: "物件を投稿しました！"
